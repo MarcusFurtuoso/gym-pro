@@ -24,3 +24,77 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+ion-content {
+  --background: var(--ion-color-primary);
+  --color: var(--ion-color-light-contrast);
+}
+
+h1 {
+  font-size: 30px;
+}
+
+.slogan {
+  color: #656565;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.content {
+  width: 100%;
+  min-height: 88vh;
+  // background: var(--ion-color-primary);
+  --background: var(--ion-color-primary);
+  --color: var(--ion-color-light-contrast);
+}
+
+.d-flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ion-item {
+  --background: transparent;
+}
+
+ion-button {
+  text-transform: capitalize;
+}
+
+.btn-color {
+  --background: #d0fd3e;
+  color: #000000;
+}
+
+span {
+  color: var(--ion-color-light-contrast);
+}
+
+.validators {
+  color: var(--ion-color-danger);
+  font-size: 14px;
+  padding: 10px 0 10px 10px;
+  text-align: start;
+}
+
+.add-update-modal {
+  --height: 95%;
+  --border-radius: 20px;
+}
+
+.empty {
+  opacity: 30%;
+  text-align: center;
+
+  ion-icon {
+    font-size: 130px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .add-update-modal {
+    --height: 100%;
+    --border-radius: 0;
+  }
+}
