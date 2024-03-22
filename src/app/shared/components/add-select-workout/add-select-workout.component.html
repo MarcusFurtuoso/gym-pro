@@ -1,0 +1,120 @@
+<ion-content [fullscreen]="true">
+  <div class="image-gym">
+    <ion-buttons slot="end">
+      <ion-button class="overlapping-header" (click)="closeModal()">
+        <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </div>
+
+  <div class="content">
+    <div *ngIf="!isEditable" class="title">
+      <h1>Weightlifting</h1>
+      <h3>6 Workouts for Beginner | 30 Min</h3>
+    </div>
+    <div *ngIf="isEditable" class="title">
+      <app-custom-input
+        [control]="form.controls.title"
+        type="text"
+        label="Title"
+      ></app-custom-input>
+      <app-custom-input
+        [control]="form.controls.description"
+        type="text"
+        label="Description"
+      ></app-custom-input>
+    </div>
+
+    <div class="date-time">
+      <ion-item class="ion-item-calendar">
+        <ion-icon slot="start" name="calendar-outline"></ion-icon>
+        <ion-datetime-button datetime="datetime"></ion-datetime-button>
+        <ion-modal [keepContentsMounted]="true">
+          <ng-template>
+            <ion-datetime
+              color="secondary"
+              [showDefaultButtons]="true"
+              id="datetime"
+            ></ion-datetime>
+          </ng-template>
+        </ion-modal>
+      </ion-item>
+    </div>
+
+    <div class="exercises">
+      <ion-item class="item-header" lines="none">
+        <ion-label>Exercises</ion-label>
+        <ion-button
+          *ngIf="isEditable"
+          (click)="createItem()"
+          slot="end"
+          mode="ios"
+        >
+          <ion-icon name="add-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-item>
+
+      <div class="scrollable-list">
+        <ion-item class="ion-item-exercises" lines="none">
+          <ion-label class="ion-no-margin">Workout 1</ion-label>
+          <ion-button slot="end" fill="clear" size="small">
+            <ion-checkbox mode="ios" slot="end"></ion-checkbox>
+          </ion-button>
+        </ion-item>
+        <ion-item class="ion-item-exercises" lines="none">
+          <ion-label class="ion-no-margin">Workout 1</ion-label>
+          <ion-button slot="end" fill="clear" size="small">
+            <ion-checkbox mode="ios" slot="end"></ion-checkbox>
+          </ion-button>
+        </ion-item>
+        <ion-item class="ion-item-exercises" lines="none">
+          <ion-label class="ion-no-margin">Workout 1</ion-label>
+          <ion-button slot="end" fill="clear" size="small">
+            <ion-checkbox mode="ios" slot="end"></ion-checkbox>
+          </ion-button>
+        </ion-item>
+        <ion-item class="ion-item-exercises" lines="none">
+          <ion-label class="ion-no-margin">Workout 4</ion-label>
+          <ion-button slot="end" fill="clear" size="small">
+            <ion-checkbox mode="ios" slot="end"></ion-checkbox>
+          </ion-button>
+        </ion-item>
+        <ion-item class="ion-item-exercises" lines="none">
+          <ion-label class="ion-no-margin">Workout 4</ion-label>
+          <ion-button slot="end" fill="clear" size="small">
+            <ion-checkbox mode="ios" slot="end"></ion-checkbox>
+          </ion-button>
+        </ion-item>
+        <ion-item class="ion-item-exercises" lines="none">
+          <ion-label class="ion-no-margin">Workout 4</ion-label>
+          <ion-button slot="end" fill="clear" size="small">
+            <ion-checkbox mode="ios" slot="end"></ion-checkbox>
+          </ion-button>
+        </ion-item>
+        <ion-item class="ion-item-exercises" lines="none">
+          <ion-label class="ion-no-margin">Workout 4</ion-label>
+          <ion-button slot="end" fill="clear" size="small">
+            <ion-checkbox mode="ios" slot="end"></ion-checkbox>
+          </ion-button>
+        </ion-item>
+        <ion-item class="ion-item-exercises" lines="none">
+          <ion-label class="ion-no-margin">Workout 41</ion-label>
+          <ion-button slot="end" fill="clear" size="small">
+            <ion-checkbox mode="ios" slot="end"></ion-checkbox>
+          </ion-button>
+        </ion-item>
+      </div>
+    </div>
+
+
+    <div class="button-save">
+      <ion-button
+        (click)="submit()"
+        shape="round"
+      >
+        Save
+      </ion-button>
+    </div>
+
+  </div>
+</ion-content>

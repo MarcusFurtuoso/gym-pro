@@ -1,0 +1,129 @@
+.image-gym {
+  background-image: url("/assets/imgs/girl.svg");
+  background-size: cover; /* Isso irá cobrir o espaço disponível */
+  background-position: center;
+  width: 100%;
+  height: 180px;
+  position: relative;
+}
+
+.overlapping-header {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.content {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--ion-color-light-shade);
+  color: var(--ion-color-light-contrast);
+  border-radius: 20px 15px 0 0;
+  margin-top: -15px;
+  position: fixed;
+}
+
+.title {
+  margin: 30px 20px 10px 20px;
+
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+    font-style: italic;
+  }
+
+  h3 {
+    margin-top: 0;
+    color: var(--ion-color-medium-tint);
+    font-style: italic;
+  }
+}
+
+.item-header {
+  --padding-top: 30px;
+
+  ion-label {
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+  ion-button {
+    width: 40px;
+    height: 40px;
+    --border-radius: 12px;
+    --background: var(--ion-color-secondary);
+    --color: var(--ion-color-primary);
+    padding-top: 8px;
+  }
+}
+
+
+ion-card-title {
+  font-size: 20px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.exercise {
+  width: 100%;
+  max-height: 200px;
+}
+
+.ion-item-exercises {
+  --border-style: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px 0 var(--ion-color-item-rgba);
+  margin: 0 10px 20px 10px;
+
+  ion-label {
+    font-size: 14px;
+    color: var(--ion-color-secondary);
+  }
+
+  ion-checkbox {
+    --checkmark-color: var(--ion-color-primary);
+    --checkbox-background-checked: var(--ion-color-secondary);
+  }
+}
+
+.ion-item-calendar {
+  --border-style: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px 0 var(--ion-color-item-rgba);
+  margin: 25px 10px 0px 10px;
+}
+
+// deixar com a posição fixed
+.scrollable-list {
+  max-height: 37vh; /* Ajuste este valor para o que você precisa */
+  overflow-y: auto;
+  margin-top: 10px;
+  // padding-bottom: 70px;
+}
+
+.datetime {
+  margin-bottom: 0;
+}
+
+.button-save {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  bottom: 5px;
+  width: 100%;
+
+  ion-button {
+    --border-radius: 15px;
+    --background: var(--ion-color-secondary);
+    --color: var(--ion-color-primary);
+    font-size: 15px;
+    width: 360px;
+    margin: 0 20px 0 20px;
+    // font-style: italic;
+  }
+}

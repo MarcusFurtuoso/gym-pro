@@ -1,0 +1,12 @@
+ion-item {
+  --border-color: var(--ion-color-item-border);
+
+  ion-icon {
+    color: var(--ion-color-item-icon);
+  }
+
+  ion-input {
+    --highlight-color-focused: white;
+  }
+}
+
