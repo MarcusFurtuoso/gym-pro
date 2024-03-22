@@ -1,0 +1,130 @@
+<ion-content [fullscreen]="true">
+
+  <app-header backButton="tabs/home"></app-header>
+
+  <div class="content">
+    <ion-button (click)="creteTraining()"
+      class="btn btn-color ion-padding-start ion-margin-top"
+      mode="ios"
+    >
+      Create training
+      <ion-icon slot="end" name="add-circle-outline"></ion-icon>
+    </ion-button>
+
+    <app-add-select-workout *ngIf="flag">
+
+    </app-add-select-workout>
+
+    <div class="workouts">
+      <div>
+        <ion-card-header class="completeds">
+          <ion-card-title>Completeds: 20</ion-card-title>
+        </ion-card-header>
+        <ion-card-header>
+          <ion-card-title>Workouts</ion-card-title>
+        </ion-card-header>
+      </div>
+      <ion-card mode="ios" class="">
+        <div class="scrollable-list">
+          <ion-item>
+            <ion-label class="ion-no-margin">Workout 1</ion-label>
+            <ion-button slot="end" fill="clear" size="small">
+              <ion-icon
+                color="secondary"
+                slot="icon-only"
+                name="eye-outline"
+              ></ion-icon>
+            </ion-button>
+            <ion-button slot="end" fill="clear" size="small">
+              <ion-icon
+                color="secondary"
+                slot="icon-only"
+                name="checkmark-outline"
+              ></ion-icon>
+            </ion-button>
+          </ion-item>
+          <ion-item>
+            <ion-label>Workout 2</ion-label>
+            <ion-button slot="end" fill="clear" size="small">
+              <ion-icon
+                color="secondary"
+                slot="icon-only"
+                name="eye-outline"
+              ></ion-icon>
+            </ion-button>
+          </ion-item>
+          <ion-item>
+            <ion-label>Workout 3</ion-label>
+            <ion-button slot="end" fill="clear" size="small">
+              <ion-icon
+                color="secondary"
+                slot="icon-only"
+                name="eye-outline"
+              ></ion-icon>
+            </ion-button>
+          </ion-item>
+          <ion-item>
+            <ion-label>Workout 3</ion-label>
+            <ion-button slot="end" fill="clear" size="small">
+              <ion-icon
+                color="secondary"
+                slot="icon-only"
+                name="eye-outline"
+              ></ion-icon>
+            </ion-button>
+          </ion-item>
+          <ion-item>
+            <ion-label>Workout 3</ion-label>
+            <ion-button slot="end" fill="clear" size="small">
+              <ion-icon
+                color="secondary"
+                slot="icon-only"
+                name="eye-outline"
+              ></ion-icon>
+            </ion-button>
+          </ion-item>
+          <ion-item>
+            <ion-label>Workout 3</ion-label>
+            <ion-button slot="end" fill="clear" size="small">
+              <ion-icon
+                color="secondary"
+                slot="icon-only"
+                name="eye-outline"
+              ></ion-icon>
+            </ion-button>
+          </ion-item>
+          <ion-item>
+            <ion-label>Workout 3</ion-label>
+            <ion-button slot="end" fill="clear" size="small">
+              <ion-icon
+                color="secondary"
+                slot="icon-only"
+                name="eye-outline"
+              ></ion-icon>
+            </ion-button>
+          </ion-item>
+          <ion-item>
+            <ion-label>Workout 3</ion-label>
+            <ion-button slot="end" fill="clear" size="small">
+              <ion-icon
+                color="secondary"
+                slot="icon-only"
+                name="eye-outline"
+              ></ion-icon>
+            </ion-button>
+          </ion-item>
+          <ion-item>
+            <ion-label>Workout 3</ion-label>
+            <ion-button slot="end" fill="clear" size="small">
+              <ion-icon
+                color="secondary"
+                slot="icon-only"
+                name="eye-outline"
+              ></ion-icon>
+            </ion-button>
+          </ion-item>
+        </div>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,107 @@
+@media (min-width: 650px) {
+  .scrollable-list::-webkit-scrollbar {
+    width: 4px; /* Largura da barra de rolagem */
+  }
+
+  .scrollable-list::-webkit-scrollbar-thumb {
+    background: transparent; /* Cor de fundo do controle deslizante */
+  }
+
+  .scrollable-list:hover::-webkit-scrollbar-thumb,
+  .scrollable-list:active::-webkit-scrollbar-thumb {
+    background-color: #555;
+  }
+}
+
+.scrollable-list {
+  max-height: 200px; /* Ajuste este valor para o que você precisa */
+  overflow-y: auto;
+}
+
+.title {
+  margin: 30px 20px 10px 20px;
+
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+    font-style: italic;
+  }
+
+  h4 {
+    font-size: 14px;
+    color: var(--ion-color-medium-tint);
+    font-style: italic;
+  }
+}
+
+ion-card {
+  border-radius: 10px;
+  padding: 5px 5px 0px 0px;
+  margin: 0 20px 10px 20px;
+  position: relative;
+  min-height: 200px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+ion-item {
+  --border-style: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px 0 var(--ion-color-item-rgba);
+  margin: 10px;
+
+  ion-label {
+    font-size: 14px;
+    color: var(--ion-color-secondary);
+    // font-style: italic;
+  }
+}
+
+ion-item:hover {
+  cursor: pointer;
+  background: #232321;
+}
+
+
+ion-card-title {
+  font-size: 20px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 0 0px 0px 5px;
+}
+
+.card-content {
+  position: absolute; /* Isso permite que o elemento seja posicionado em relação ao elemento pai mais próximo com posição relativa */
+  bottom: 0; /* Isso posiciona o elemento na parte inferior do elemento pai */
+  left: 0; /* Isso posiciona o elemento na esquerda do elemento pai */
+  text-align: left; /* Isso alinha o texto à esquerda */
+  padding: 0px;
+
+  h1 {
+    color: white;
+  }
+
+  h2 {
+    color: var(--ion-color-secondary);
+    margin-left: 4px;
+  }
+
+}
+
+.card-workouts {
+  background-image: url('/assets/imgs/girl.svg');
+  background-size: cover; /* Isso irá cobrir o espaço disponível */
+  background-position: center;
+  cursor: pointer; /* Isso irá centralizar a imagem */
+}
+
+.card-categories {
+  background-image: url('/assets/imgs/girl.svg');
+  background-size: cover; /* Isso irá cobrir o espaço disponível */
+  background-position: center;
+  cursor: pointer; /* Isso irá centralizar a imagem */
+}
+
+.btn {
+  margin-bottom: 0;
+}

@@ -1,0 +1,57 @@
+<ion-content [fullscreen]="true">
+  <!-- <app-header title="Welcome, Vini"></app-header> -->
+  <div class="title">
+    <h1>WELCOME, VINI!</h1>
+    <h4>Monday, 21 August 2020</h4>
+  </div>
+
+  <div class="content">
+    <div>
+      <div>
+        <ion-card-header>
+          <ion-card-title>My workouts</ion-card-title>
+        </ion-card-header>
+      </div>
+      <ion-card mode="ios" class="card-workouts" routerLink="workouts">
+        <div class="card-content">
+          <ion-card-content>
+            <h1>Training for Beginner</h1>
+            <h2>| 06 Workouts for Beginner</h2>
+          </ion-card-content>
+        </div>
+      </ion-card>
+    </div>
+
+    <div>
+
+      <ion-card-header>
+        <ion-card-title>Workout categories</ion-card-title>
+      </ion-card-header>
+
+      <ion-card class="card-categories" (click)="selectedWorkout()">
+        <div class="card-content">
+          <ion-card-content>
+            <h1>Training for Beginner</h1>
+            <h2>| 06 Workouts for Beginner</h2>
+          </ion-card-content>
+        </div>
+      </ion-card>
+      <ion-card class="card-categories">
+        <div class="card-content">
+          <ion-card-content>
+            <h1>Training for Intermediate</h1>
+            <h2>| 06 Workouts for Intermediate</h2>
+          </ion-card-content>
+        </div>
+      </ion-card>
+      <ion-card class="card-categories">
+        <div class="card-content">
+          <ion-card-content>
+            <h1>Training for Advanced</h1>
+            <h2>| 06 Workouts for Advanced</h2>
+          </ion-card-content>
+        </div>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>
