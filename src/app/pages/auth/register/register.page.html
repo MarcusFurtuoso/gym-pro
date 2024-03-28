@@ -8,7 +8,26 @@
 
   <div class="content">
     <div class="d-flex-center">
-      <form (ngSubmit)="submit()" class="ion-text-center">
+      <form [formGroup]="form" (ngSubmit)="submit()" class="ion-text-center">
+        <app-custom-input
+          autocomplete="name"
+          [control]="form.controls.name"
+          type="text"
+          label="Name"
+          icon="person-outline"
+        ></app-custom-input>
+        <div
+          class="validators"
+          *ngIf="form.controls.name.errors && form.controls.name.touched && form.controls.name.dirty"
+        >
+          <div *ngIf="form.controls.name.errors?.['required']">
+            Name is required!
+          </div>
+          <div *ngIf="form.controls.name.errors?.['minlength']">
+            Name invalid!
+          </div>
+        </div>
+
         <app-custom-input
           class="icon-color"
           autocomplete="email"
@@ -64,7 +83,6 @@
 
         <div>
           <ion-button
-            routerLink="/auth"
             type="submit"
             [disabled]="form.invalid"
             class="btn-color ion-margin-vertical"
