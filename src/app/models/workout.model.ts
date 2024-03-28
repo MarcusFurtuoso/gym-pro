@@ -8,5 +8,5 @@ export interface Workout {
 
  export interface Exercise {
     name: string;
-    completed: boolean
+    completed: boolean;
  }
