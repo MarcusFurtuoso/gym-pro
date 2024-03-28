@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, AlertOptions, LoadingController, LoadingOptions, ModalController, ModalOptions, ToastController, ToastOptions } from '@ionic/angular';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -20,10 +19,12 @@ export class UtilsService {
   // Loading
   // PRESENT
   async presentLoading(opts?: LoadingOptions) {
-    const loading = await this.loadingController.create(opts);
+    const loading = await this.loadingController.create({
+      ...opts,
+      cssClass: 'my-custom-loading',
+    });
     await loading.present();
   }
-
 
   // DISMISS
   async dismissLoading() {
