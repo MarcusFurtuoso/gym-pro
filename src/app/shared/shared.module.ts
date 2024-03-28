@@ -13,7 +13,7 @@ import { AddSelectWorkoutComponent } from './components/add-select-workout/add-s
 
 @NgModule({
   declarations: [ForgotPasswordComponent, HeaderComponent, LogoComponent, CustomInputComponent, AddSelectWorkoutComponent],
-  exports: [ForgotPasswordComponent, HeaderComponent, LogoComponent, CustomInputComponent, AddSelectWorkoutComponent],
+  exports: [ForgotPasswordComponent, HeaderComponent, LogoComponent, CustomInputComponent, AddSelectWorkoutComponent, ReactiveFormsModule],
   imports: [
     CommonModule,
     IonicModule,
