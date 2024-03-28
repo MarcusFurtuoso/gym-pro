@@ -25,6 +25,8 @@
     font-size: 24px;
     font-weight: bold;
     font-style: italic;
+    // colocar o h1 em uppercase
+    text-transform: uppercase;
   }
 
   h4 {
@@ -40,7 +42,7 @@ ion-card {
   margin: 0 20px 10px 20px;
   position: relative;
   min-height: 200px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+
 }
 
 ion-item {
@@ -61,13 +63,16 @@ ion-item:hover {
   background: #232321;
 }
 
+ion-card-header{
+  padding-bottom: 5px;
 
-ion-card-title {
-  font-size: 20px;
-  font-weight: bold;
-  font-style: italic;
-  padding: 0;
-  margin: 0 0px 0px 5px;
+  ion-card-title {
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 0 0px 0px 5px;
+  }
 }
 
 .card-content {
@@ -89,14 +94,14 @@ ion-card-title {
 }
 
 .card-workouts {
-  background-image: url('/assets/imgs/girl.svg');
+  background-image: url('/assets/imgs/alteres.jpg');
   background-size: cover; /* Isso irá cobrir o espaço disponível */
   background-position: center;
   cursor: pointer; /* Isso irá centralizar a imagem */
 }
 
 .card-categories {
-  background-image: url('/assets/imgs/girl.svg');
+  background-image: url('/assets/imgs/mulher-treinando.jpg');
   background-size: cover; /* Isso irá cobrir o espaço disponível */
   background-position: center;
   cursor: pointer; /* Isso irá centralizar a imagem */

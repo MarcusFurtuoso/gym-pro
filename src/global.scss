@@ -63,7 +63,7 @@ ion-button {
 }
 
 .btn-color {
-  --background: #d0fd3e;
+  --background: #D0FD3E;
   color: #000000;
 }
 
@@ -78,10 +78,10 @@ span {
   text-align: start;
 }
 
-// .add-update-modal {
-//   --height: 95%;
-//   --border-radius: 20px;
-// }
+.add-update-modal {
+  --height: 95%;
+  --border-radius: 20px;
+}
 
 .empty {
   opacity: 30%;
@@ -92,6 +92,13 @@ span {
   }
 }
 
+.my-custom-loading {
+  --background: white;
+
+  .loading-wrapper {
+    background: black;
+  }
+}
 @media screen and (max-width: 768px) {
   .add-update-modal {
     --height: 100%;

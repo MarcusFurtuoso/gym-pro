@@ -1,8 +1,8 @@
 <ion-content [fullscreen]="true">
   <!-- <app-header title="Welcome, Vini"></app-header> -->
   <div class="title">
-    <h1>WELCOME, VINI!</h1>
-    <h4>Monday, 21 August 2020</h4>
+    <h1>WELCOME, {{user.name}}!</h1>
+    <h4>{{ currentDate }}</h4>
   </div>
 
   <div class="content">
@@ -15,8 +15,8 @@
       <ion-card mode="ios" class="card-workouts" routerLink="workouts">
         <div class="card-content">
           <ion-card-content>
-            <h1>Training for Beginner</h1>
-            <h2>| 06 Workouts for Beginner</h2>
+            <h1>Your workouts in one place</h1>
+            <h2>| Make it happen</h2>
           </ion-card-content>
         </div>
       </ion-card>
