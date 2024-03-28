@@ -8,21 +8,50 @@
   </div>
 
   <div class="content">
-    <div *ngIf="!isEditable" class="title">
-      <h1>Weightlifting</h1>
-      <h3>6 Workouts for Beginner | 30 Min</h3>
+    <div *ngIf="workout" class="content-with-workout title">
+      <h1>{{ workout?.title }}</h1>
+      <h3>{{ workout?.description }}</h3>
     </div>
-    <div *ngIf="isEditable" class="title">
-      <app-custom-input
-        [control]="form.controls.title"
-        type="text"
-        label="Title"
-      ></app-custom-input>
-      <app-custom-input
-        [control]="form.controls.description"
-        type="text"
-        label="Description"
-      ></app-custom-input>
+
+    <!-- <form [formGroup]="form"> -->
+    <div *ngIf="!workout">
+      <ion-item class="ion-item-title">
+        <ion-input class="label" [formControl]="form.controls.title" label="Title" labelPlacement="floating"></ion-input>
+      </ion-item>
+      <div
+        class="validators-input"
+        *ngIf="
+          form.controls.title.errors &&
+          form.controls.title.touched &&
+          form.controls.title.dirty
+        "
+      >
+        <div *ngIf="form.controls.title.errors?.['required']">
+          Title is required!
+        </div>
+        <div *ngIf="form.controls.title.errors?.['minlength']">
+          Title must have at least 3 characters!
+        </div>
+      </div>
+
+      <ion-item class="ion-item-title">
+        <ion-textarea class="label" [formControl]="form.controls.description" autoGrow="true" debounce="500" maxlength="100" label="Description" labelPlacement="floating"></ion-textarea>
+      </ion-item>
+      <div
+        class="validators-input"
+        *ngIf="
+          form.controls.description.errors &&
+          form.controls.description.touched &&
+          form.controls.description.dirty
+        "
+      >
+        <div *ngIf="form.controls.description.errors?.['required']">
+          Description is required!
+        </div>
+        <div *ngIf="form.controls.description.errors?.['minlength']">
+          Description must have at least 4 characters!
+        </div>
+      </div>
     </div>
 
     <div class="date-time">
@@ -35,6 +64,7 @@
               color="secondary"
               [showDefaultButtons]="true"
               id="datetime"
+              [formControl]="form.controls.datetime"
             ></ion-datetime>
           </ng-template>
         </ion-modal>
@@ -44,77 +74,39 @@
     <div class="exercises">
       <ion-item class="item-header" lines="none">
         <ion-label>Exercises</ion-label>
-        <ion-button
-          *ngIf="isEditable"
-          (click)="createItem()"
-          slot="end"
-          mode="ios"
-        >
+        <ion-button (click)="createItem()" slot="end" mode="ios">
           <ion-icon name="add-circle-outline"></ion-icon>
         </ion-button>
       </ion-item>
 
-      <div class="scrollable-list">
+      <div
+        class="scrollable-list"
+        *ngFor="let exercise of form.value.exercises; index as i"
+      >
         <ion-item class="ion-item-exercises" lines="none">
-          <ion-label class="ion-no-margin">Workout 1</ion-label>
-          <ion-button slot="end" fill="clear" size="small">
-            <ion-checkbox mode="ios" slot="end"></ion-checkbox>
-          </ion-button>
-        </ion-item>
-        <ion-item class="ion-item-exercises" lines="none">
-          <ion-label class="ion-no-margin">Workout 1</ion-label>
-          <ion-button slot="end" fill="clear" size="small">
-            <ion-checkbox mode="ios" slot="end"></ion-checkbox>
-          </ion-button>
-        </ion-item>
-        <ion-item class="ion-item-exercises" lines="none">
-          <ion-label class="ion-no-margin">Workout 1</ion-label>
-          <ion-button slot="end" fill="clear" size="small">
-            <ion-checkbox mode="ios" slot="end"></ion-checkbox>
-          </ion-button>
-        </ion-item>
-        <ion-item class="ion-item-exercises" lines="none">
-          <ion-label class="ion-no-margin">Workout 4</ion-label>
-          <ion-button slot="end" fill="clear" size="small">
-            <ion-checkbox mode="ios" slot="end"></ion-checkbox>
-          </ion-button>
-        </ion-item>
-        <ion-item class="ion-item-exercises" lines="none">
-          <ion-label class="ion-no-margin">Workout 4</ion-label>
-          <ion-button slot="end" fill="clear" size="small">
-            <ion-checkbox mode="ios" slot="end"></ion-checkbox>
-          </ion-button>
-        </ion-item>
-        <ion-item class="ion-item-exercises" lines="none">
-          <ion-label class="ion-no-margin">Workout 4</ion-label>
-          <ion-button slot="end" fill="clear" size="small">
-            <ion-checkbox mode="ios" slot="end"></ion-checkbox>
-          </ion-button>
-        </ion-item>
-        <ion-item class="ion-item-exercises" lines="none">
-          <ion-label class="ion-no-margin">Workout 4</ion-label>
-          <ion-button slot="end" fill="clear" size="small">
-            <ion-checkbox mode="ios" slot="end"></ion-checkbox>
-          </ion-button>
-        </ion-item>
-        <ion-item class="ion-item-exercises" lines="none">
-          <ion-label class="ion-no-margin">Workout 41</ion-label>
-          <ion-button slot="end" fill="clear" size="small">
-            <ion-checkbox mode="ios" slot="end"></ion-checkbox>
-          </ion-button>
+          <ion-label class="ion-no-margin">{{ exercise.name }}</ion-label>
+          <ion-buttons slot="end">
+            <ion-button class="ion-buttom" fill="clear" slot="end" class="ion-margin-horizontal" (click)="removeItem(i)" size="default">
+              <ion-icon class="ion-margin-left" mode="ios" name="trash"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+          <ion-checkbox
+            slot="end"
+            mode="ios"
+            [(ngModel)]="exercise.completed"
+          ></ion-checkbox>
         </ion-item>
       </div>
     </div>
-
-
-    <div class="button-save">
-      <ion-button
-        (click)="submit()"
-        shape="round"
-      >
-        Save
-      </ion-button>
-    </div>
-
   </div>
 </ion-content>
+
+    <ion-footer>
+      <div class="button-save">
+        <ion-button class="ion-margin" (click)="submit()" [disabled]="form.invalid" shape="round">
+          {{ workout ? "Save" : "Create Workout" }}
+        </ion-button>
+      </div>
+  </ion-footer>
+
+

@@ -1,5 +1,5 @@
 .image-gym {
-  background-image: url("/assets/imgs/girl.svg");
+  background-image: url("/assets/imgs/alteres-2.jpg");
   background-size: cover; /* Isso irá cobrir o espaço disponível */
   background-position: center;
   width: 100%;
@@ -13,23 +13,50 @@
   right: 0;
 }
 
+.ion-item-title {
+  --border-color: var(--ion-color-item-border);
+
+  margin: 10px 20px 0 10px;
+
+  .label {
+    font-size: 15px;
+  }
+
+  ion-input {
+    margin-top: 10px;
+  }
+
+  ion-input, ion-textarea {
+    --highlight-color-focused: var(--ion-color-primary-contrast);
+    --highlight-color-valid: var(--ion-color-secondary);
+  }
+}
+
+.validators-input {
+  color: var(--ion-color-danger);
+  font-size: 14px;
+  margin: 10px 25px;
+}
+
 .content {
   width: 100%;
-  min-height: 100vh;
+  min-height: 80vh;
   background: var(--ion-color-light-shade);
   color: var(--ion-color-light-contrast);
   border-radius: 20px 15px 0 0;
-  margin-top: -15px;
-  position: fixed;
+  margin-top: -25px;
+  position: relative;
 }
 
 .title {
-  margin: 30px 20px 10px 20px;
+  margin: -35px 20px 0 20px;
 
   h1 {
     font-size: 24px;
     font-weight: bold;
     font-style: italic;
+    margin-left: 2px;
+    padding-top: 30px;
   }
 
   h3 {
@@ -39,8 +66,11 @@
   }
 }
 
+.exercises {
+  margin: 0px 7px 0 7px;
+}
+
 .item-header {
-  --padding-top: 30px;
 
   ion-label {
     font-size: 20px;
@@ -69,20 +99,19 @@ ion-card-title {
   margin-bottom: 0;
 }
 
-.exercise {
-  width: 100%;
-  max-height: 200px;
-}
-
 .ion-item-exercises {
   --border-style: none;
   border-radius: 10px;
   box-shadow: 0 2px 5px 0 var(--ion-color-item-rgba);
-  margin: 0 10px 20px 10px;
+  margin: 0 10px 5px 10px;
 
   ion-label {
     font-size: 14px;
     color: var(--ion-color-secondary);
+  }
+
+  .ion-buttom {
+    --color-activated: red;
   }
 
   ion-checkbox {
@@ -95,15 +124,31 @@ ion-card-title {
   --border-style: none;
   border-radius: 10px;
   box-shadow: 0 2px 5px 0 var(--ion-color-item-rgba);
-  margin: 25px 10px 0px 10px;
+  margin: 20px 20px 10px 20px;
+  position: relative;
+
+  ion-icon {
+    margin-right: 60px;
+  }
+
+  ion-datetime-button {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }
 
 // deixar com a posição fixed
 .scrollable-list {
-  max-height: 37vh; /* Ajuste este valor para o que você precisa */
+  max-height: 320px; /* Ajuste este valor para o que você precisa */
   overflow-y: auto;
-  margin-top: 10px;
-  // padding-bottom: 70px;
+  margin-top: 5px;
+}
+
+ion-checkbox {
+  --size: 20px;
+  margin-left: 0;
 }
 
 .datetime {
@@ -111,10 +156,10 @@ ion-card-title {
 }
 
 .button-save {
-  position: fixed;
+  // position: fixed;
   display: flex;
   justify-content: center;
-  bottom: 5px;
+  margin-bottom: 5px;
   width: 100%;
 
   ion-button {
@@ -127,3 +172,8 @@ ion-card-title {
     // font-style: italic;
   }
 }
+
+ion-footer{
+  background: var(--ion-color-light-shade);
+}
+
