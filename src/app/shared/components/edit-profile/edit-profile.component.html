@@ -1,0 +1,36 @@
+<ion-content>
+  <app-header
+    backButton="tabs/profile"
+    titleButton="Edit Profile"
+    [centerTitle]="true"
+  ></app-header>
+
+  <div class="content">
+    <div class="user">
+      <div class="user-content">
+        <ion-icon class="user" name="person-circle-outline"></ion-icon>
+      </div>
+    </div>
+
+    <form [formGroup]="form">
+      <div class="options">
+        <ion-item [button]="true" lines="none">
+          <ion-label position="stacked">{{ user.name }}</ion-label>
+          <ion-input formControlName="name" type="text">{{ user.name }}</ion-input>
+        </ion-item>
+        <ion-item [button]="true" lines="none">
+          <ion-label position="stacked">Email</ion-label>
+          <ion-input formControlName="email" type="text">{{ user.email }}</ion-input>
+        </ion-item>
+        <ion-item [button]="true" lines="none">
+          <ion-label position="stacked">Height</ion-label>
+          <ion-input formControlName="email" type="text">180 cm</ion-input>
+        </ion-item>
+        <ion-item [button]="true" lines="none">
+          <ion-label position="stacked">Weigth</ion-label>
+          <ion-input formControlName="email" type="text">80 kg</ion-input>
+        </ion-item>
+      </div>
+    </form>
+  </div>
+</ion-content>

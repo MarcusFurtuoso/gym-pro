@@ -1,0 +1,50 @@
+.content {
+  padding: 20px;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 10px 0;
+  text-align: justify;
+  text-justify: inter-word;
+
+  p {
+    margin: 0 0 20px;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin: 0 0 20px;
+  }
+
+  h2 {
+    font-size: 20px;
+    margin: 0 0 20px;
+  }
+
+  h3 {
+    font-size: 18px;
+    margin: 0 0 20px;
+  }
+
+  h4 {
+    font-size: 16px;
+    margin: 0 0 20px;
+  }
+
+  h5 {
+    font-size: 14px;
+    margin: 0 0 20px;
+  }
+
+  h6 {
+    font-size: 12px;
+    margin: 0 0 20px;
+  }
+  
+  ul {
+    padding-left: 20px;
+    margin: 0 0 20px;
+    li {
+      margin: 0 0 10px;
+    }
+  }
+}

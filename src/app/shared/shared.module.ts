@@ -10,10 +10,12 @@ import { HeaderComponent } from './components/header/header.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { CustomInputComponent } from './components/custom-input/custom-input.component';
 import { AddSelectWorkoutComponent } from './components/add-select-workout/add-select-workout.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 
 @NgModule({
-  declarations: [ForgotPasswordComponent, HeaderComponent, LogoComponent, CustomInputComponent, AddSelectWorkoutComponent],
-  exports: [ForgotPasswordComponent, HeaderComponent, LogoComponent, CustomInputComponent, AddSelectWorkoutComponent, ReactiveFormsModule],
+  declarations: [ForgotPasswordComponent, HeaderComponent, LogoComponent, CustomInputComponent, AddSelectWorkoutComponent, EditProfileComponent, PrivacyPolicyComponent],
+  exports: [ReactiveFormsModule, ForgotPasswordComponent, HeaderComponent, LogoComponent, CustomInputComponent, AddSelectWorkoutComponent, EditProfileComponent, PrivacyPolicyComponent],
   imports: [
     CommonModule,
     IonicModule,
