@@ -11,6 +11,7 @@ import { BehaviorSubject } from 'rxjs';
 export class HeaderComponent  implements OnInit {
 
   @Input() title: string;
+  @Input() titleButton: string;
   @Input() backButton: string;
   @Input() isModal: boolean;
   @Input() color: string;
@@ -23,7 +24,7 @@ export class HeaderComponent  implements OnInit {
   //   private utilsService: UtilsService) { }
 
   ngOnInit() {
-    
+
   }
 
   // dimissModal() {
