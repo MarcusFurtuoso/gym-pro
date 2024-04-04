@@ -13,7 +13,7 @@
           autocomplete="name"
           [control]="form.controls.name"
           type="text"
-          label="Name"
+          label="First Name"
           icon="person-outline"
         ></app-custom-input>
         <div
@@ -45,6 +45,75 @@
           </div>
           <div *ngIf="form.controls.email.errors?.['email']">
             Email invalid!
+          </div>
+        </div>
+
+        <app-custom-input
+          class="icon-color"
+          autocomplete="height"
+          [control]="form.controls.height"
+          type="text"
+          label="Height"
+          icon="swap-vertical-outline"
+        ></app-custom-input>
+        <div
+          class="validators"
+          *ngIf="form.controls.height.errors && form.controls.height.touched && form.controls.height.dirty"
+        >
+          <div *ngIf="form.controls.height.errors?.['required']">
+            Height is required!
+          </div>
+          <div *ngIf="form.controls.height.errors?.['pattern']">
+            Height invalid!
+          </div>
+          <div *ngIf="form.controls.height.errors?.['maxlength']">
+            The height must not exceed 3 characters!
+          </div>
+        </div>
+
+        <app-custom-input
+          class="icon-color"
+          autocomplete="weight"
+          [control]="form.controls.weight"
+          type="text"
+          label="Weight"
+          icon="barbell-outline"
+        ></app-custom-input>
+        <div
+          class="validators"
+          *ngIf="form.controls.weight.errors && form.controls.weight.touched && form.controls.weight.dirty"
+        >
+          <div *ngIf="form.controls.weight.errors?.['required']">
+            Weight is required!
+          </div>
+          <div *ngIf="form.controls.weight.errors?.['pattern']">
+            Weight invalid!
+          </div>
+          <div *ngIf="form.controls.weight.errors?.['maxlength']">
+            The weight must not exceed 3 characters!
+          </div>
+        </div>
+
+        <app-custom-input
+          class="icon-color"
+          autocomplete="age"
+          [control]="form.controls.age"
+          type="text"
+          label="Age"
+          icon="calendar-number-outline"
+        ></app-custom-input>
+        <div
+          class="validators"
+          *ngIf="form.controls.age.errors && form.controls.age.touched && form.controls.age.dirty"
+        >
+          <div *ngIf="form.controls.age.errors?.['required']">
+            Age is required!
+          </div>
+          <div *ngIf="form.controls.age.errors?.['pattern']">
+            Age invalid!
+          </div>
+          <div *ngIf="form.controls.age.errors?.['maxlength']">
+            The age must not exceed 3 characters!
           </div>
         </div>
 

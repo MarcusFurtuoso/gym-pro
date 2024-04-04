@@ -15,8 +15,9 @@ export class RegisterPage implements OnInit {
 
   form = new FormGroup({
     name: new FormControl('', [Validators.required]),
-    height: new FormControl(''),
-    weight: new FormControl(''),
+    height: new FormControl('', [Validators.required, Validators.pattern('^[0-9]*$'), Validators.maxLength(3)]),
+    weight: new FormControl('', [Validators.required, Validators.pattern('^[0-9]*$'), Validators.maxLength(3)]),
+    age: new FormControl('', [Validators.required, Validators.pattern('^[0-9]*$'), Validators.maxLength(2)]),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
     confirmPassword: new FormControl(''),
@@ -58,8 +59,9 @@ export class RegisterPage implements OnInit {
             uid: res.user.uid,
             name: res.user.displayName,
             email: res.user.email,
-            height: null,
-            weight: null,
+            height: this.form.value.height,
+            weight: this.form.value.weight,
+            age: this.form.value.age,
           };
 
           this.utilsService.setElementFromLocalStorage('user', user);
