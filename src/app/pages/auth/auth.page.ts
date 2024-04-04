@@ -48,9 +48,10 @@ export class AuthPage implements OnInit {
               map((user) => {
                 return {
                   ...user,
-                  uid: res.user.uid,  
+                  uid: res.user.uid,
                   height: user.height,
                   weight: user.weight,
+                  age: user.age,
                 };
               }),
               tap((user) => {
