@@ -1,0 +1,27 @@
+<ion-content [fullscreen]="true">
+  <app-header
+    backButton="tabs/profile"
+    titleButton="Notifications"
+    [centerTitle]="true"
+  ></app-header>
+
+  <div class="content">
+    <div class="options">
+      <ion-item lines="none">
+        <ion-toggle>Workout Reminders</ion-toggle>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-toggle>Program Notifications</ion-toggle>
+      </ion-item>
+    </div>
+
+    <div class="text">
+      <p>
+        <ion-text>
+          You can manage your app notification permission in your
+        </ion-text>
+        <ion-text color="secondary">Phone Settings</ion-text>
+      </p>
+    </div>
+  </div>
+</ion-content>

@@ -1,3 +1,4 @@
+import { SupportComponent } from './components/support/support.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
@@ -12,10 +13,11 @@ import { CustomInputComponent } from './components/custom-input/custom-input.com
 import { AddSelectWorkoutComponent } from './components/add-select-workout/add-select-workout.component';
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
+import { NotificationsComponent } from './components/notifications/notifications.component';
 
 @NgModule({
-  declarations: [ForgotPasswordComponent, HeaderComponent, LogoComponent, CustomInputComponent, AddSelectWorkoutComponent, EditProfileComponent, PrivacyPolicyComponent],
-  exports: [ReactiveFormsModule, ForgotPasswordComponent, HeaderComponent, LogoComponent, CustomInputComponent, AddSelectWorkoutComponent, EditProfileComponent, PrivacyPolicyComponent],
+  declarations: [ForgotPasswordComponent, HeaderComponent, LogoComponent, CustomInputComponent, AddSelectWorkoutComponent, EditProfileComponent, PrivacyPolicyComponent, NotificationsComponent, SupportComponent],
+  exports: [ReactiveFormsModule, NgCircleProgressModule, ForgotPasswordComponent, HeaderComponent, LogoComponent, CustomInputComponent, AddSelectWorkoutComponent, EditProfileComponent, PrivacyPolicyComponent, NotificationsComponent, SupportComponent],
   imports: [
     CommonModule,
     IonicModule,
