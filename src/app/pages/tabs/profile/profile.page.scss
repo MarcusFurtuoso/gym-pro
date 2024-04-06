@@ -4,10 +4,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-}
 
-.user-content {
-  text-align: center;
   ion-icon {
     height: 130px;
     width: 130px;
@@ -20,11 +17,8 @@
     font-style: italic;
     text-transform: uppercase;
   }
-  a {
-    color: var(--ion-color-secondary);
-    text-decoration: none;
-  }
 }
+
 .options {
   margin: 40px 10px 0px 10px;
   padding: 0;
@@ -50,4 +44,35 @@
 
 .sign-out-button {
   font-size: 18px;
+}
+
+
+.info-boxes {
+  display: flex;
+  justify-content: center;
+}
+
+.info-box {
+  width: 80px;
+  height: 80px;
+  margin: 20px 10px 5px 10px;
+  border-radius: 10px;
+  background: var(--ion-color-light-tint);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  p {
+    margin: 0;
+  }
+}
+
+.value {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--ion-color-secondary);
+}
+
+.label {
+  font-size: 14px;
 }

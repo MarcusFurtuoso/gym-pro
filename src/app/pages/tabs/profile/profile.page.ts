@@ -9,7 +9,6 @@ import { UtilsService } from 'src/app/services/utils.service';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
-
   user = {} as User;
 
   constructor(
@@ -17,10 +16,11 @@ export class ProfilePage implements OnInit {
     private firebaseService: FirebaseService
   ) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  ionViewWillEnter() {
     this.getUserLocalStorage();
   }
-
 
   getUserLocalStorage() {
     this.user = this.utilsService.getElementFromLocalStorage('user');
@@ -54,5 +54,12 @@ export class ProfilePage implements OnInit {
     this.utilsService.routerLink('/tabs/profile/privacy-policy')
   }
 
-  
+  notifications() {
+    this.utilsService.routerLink('/tabs/profile/notifications')
+  }
+
+  support() {
+    this.utilsService.routerLink('/tabs/profile/support')
+  }
+
 }

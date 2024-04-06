@@ -4,6 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProfilePage } from './profile.page';
 import { EditProfileComponent } from 'src/app/shared/components/edit-profile/edit-profile.component';
 import { PrivacyPolicyComponent } from 'src/app/shared/components/privacy-policy/privacy-policy.component';
+import { NotificationsComponent } from 'src/app/shared/components/notifications/notifications.component';
+import { SupportComponent } from 'src/app/shared/components/support/support.component';
 
 const routes: Routes = [
   {
@@ -18,6 +20,14 @@ const routes: Routes = [
     path: 'privacy-policy',
     component: PrivacyPolicyComponent,
   },
+  {
+    path: 'notifications',
+    component: NotificationsComponent,
+  },
+  {
+    path: 'support',
+    component: SupportComponent,
+  }
 ];
 
 @NgModule({
