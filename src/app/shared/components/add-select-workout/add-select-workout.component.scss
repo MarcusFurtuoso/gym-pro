@@ -1,5 +1,5 @@
 .image-gym {
-  background-image: url("/assets/imgs/alteres-2.jpg");
+  background-image: url("/assets/imgs/girl.svg");
   background-size: cover; /* Isso irá cobrir o espaço disponível */
   background-position: center;
   width: 100%;
@@ -41,7 +41,7 @@
 .content {
   width: 100%;
   min-height: 80vh;
-  background: var(--ion-color-light-shade);
+  background: var(--ion-color-primary);
   color: var(--ion-color-light-contrast);
   border-radius: 20px 15px 0 0;
   margin-top: -25px;
@@ -156,7 +156,6 @@ ion-checkbox {
 }
 
 .button-save {
-  // position: fixed;
   display: flex;
   justify-content: center;
   margin-bottom: 5px;
@@ -169,11 +168,10 @@ ion-checkbox {
     font-size: 15px;
     width: 360px;
     margin: 0 20px 0 20px;
-    // font-style: italic;
   }
 }
 
 ion-footer{
-  background: var(--ion-color-light-shade);
+  background: var(--ion-color-primary);
 }
 

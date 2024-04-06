@@ -23,6 +23,7 @@ export class AddSelectWorkoutComponent implements OnInit {
       Validators.maxLength(100),
     ]),
     datetime: new FormControl(this.getLocalDatetime(), [Validators.required]),
+    completed: new FormControl(false),
     exercises: new FormControl(
       [],
       [Validators.required, Validators.minLength(1)]
@@ -77,7 +78,7 @@ export class AddSelectWorkoutComponent implements OnInit {
           this.utilsService.dismissModal({ success: true });
 
           this.utilsService.presentToast({
-            message: 'Workout created successfully',
+            message: 'Workout created successfully!',
             color: 'secondary',
             icon: 'checkmark-circle-outline',
             duration: 1500,
@@ -88,8 +89,8 @@ export class AddSelectWorkoutComponent implements OnInit {
           this.utilsService.dismissModal({ success: true });
 
           this.utilsService.presentToast({
-            message: error,
-            color: 'warning',
+            message: 'Error when creating workout!',
+            color: 'danger',
             icon: 'alert-circle-outline',
             duration: 5000,
           });
@@ -105,6 +106,8 @@ export class AddSelectWorkoutComponent implements OnInit {
     this.utilsService.presentLoading();
     delete this.form.value.id;
 
+    this.checkWorkoutCompletion();
+
     this.firebaseService
       .updateDocument(path, this.form.value)
       .then(
@@ -112,7 +115,7 @@ export class AddSelectWorkoutComponent implements OnInit {
           this.utilsService.dismissModal({ success: true });
 
           this.utilsService.presentToast({
-            message: 'Workout updated successfully',
+            message: 'Workout updated successfully!',
             color: 'secondary',
             icon: 'checkmark-circle-outline',
             duration: 1500
@@ -122,7 +125,7 @@ export class AddSelectWorkoutComponent implements OnInit {
         (error) => {
 
           this.utilsService.presentToast({
-            message: error,
+            message: 'Error when updating workout!',
             color: 'warning',
             icon: 'alert-circle-outline',
             duration: 5000
@@ -131,6 +134,16 @@ export class AddSelectWorkoutComponent implements OnInit {
           this.utilsService.dismissLoading();
         }
       );
+  }
+
+  checkWorkoutCompletion() {
+    // Verifica se todos os exercícios estão completos
+    const allExercisesCompleted = this.workout.exercises.every(exercise => exercise.completed);
+    // Se todos os exercícios estão completos, marca o treino como completo
+    if (allExercisesCompleted) {
+      return this.form.value.completed = true;
+    }
+    return this.form.value.completed = false;
   }
 
   createItem() {

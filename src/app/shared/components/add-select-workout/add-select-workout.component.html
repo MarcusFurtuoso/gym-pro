@@ -91,6 +91,7 @@
             </ion-button>
           </ion-buttons>
           <ion-checkbox
+            *ngIf="workout"
             slot="end"
             mode="ios"
             [(ngModel)]="exercise.completed"
