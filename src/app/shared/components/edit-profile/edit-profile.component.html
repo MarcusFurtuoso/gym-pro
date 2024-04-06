@@ -14,23 +14,35 @@
 
     <form [formGroup]="form">
       <div class="options">
-        <ion-item [button]="true" lines="none">
-          <ion-label position="stacked">{{ user.name }}</ion-label>
-          <ion-input formControlName="name" type="text">{{ user.name }}</ion-input>
+        <ion-item lines="none">
+          <ion-label position="stacked">First Name</ion-label>
+          <ion-input formControlName="name" type="text"></ion-input>
         </ion-item>
-        <ion-item [button]="true" lines="none">
+        <ion-item lines="none">
           <ion-label position="stacked">Email</ion-label>
-          <ion-input formControlName="email" type="text">{{ user.email }}</ion-input>
+          <ion-input formControlName="email" type="text"></ion-input>
         </ion-item>
-        <ion-item [button]="true" lines="none">
-          <ion-label position="stacked">Height</ion-label>
-          <ion-input formControlName="email" type="text">180 cm</ion-input>
+        <ion-item lines="none">
+          <ion-label position="stacked">Height (cm)</ion-label>
+          <ion-input formControlName="height" type="text"></ion-input>
         </ion-item>
-        <ion-item [button]="true" lines="none">
-          <ion-label position="stacked">Weigth</ion-label>
-          <ion-input formControlName="email" type="text">80 kg</ion-input>
+        <ion-item lines="none">
+          <ion-label position="stacked">Weight (kg)</ion-label>
+          <ion-input formControlName="weight" type="text"></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label position="stacked">Age</ion-label>
+          <ion-input formControlName="age" type="text"></ion-input>
         </ion-item>
       </div>
     </form>
   </div>
+
 </ion-content>
+<ion-footer>
+  <div class="button-save">
+    <ion-button class="ion-margin" (click)="submit()" [disabled]="form.invalid" shape="round">
+      Save changes
+    </ion-button>
+  </div>
+</ion-footer>
