@@ -14,6 +14,7 @@ export class WorkoutsPage implements OnInit {
   user = {} as User;
   workouts: Workout[] = [];
   loading: boolean = false;
+  completedWorkoutsCount: number;
 
   constructor(
     private firebaseService: FirebaseService,
@@ -23,6 +24,7 @@ export class WorkoutsPage implements OnInit {
   ngOnInit() {
     this.getUser();
     this.getWorkouts();
+    this.getCompletedWorkoutsCount();
   }
 
   getUser() {
@@ -45,6 +47,12 @@ export class WorkoutsPage implements OnInit {
           this.loading = false;
         },
       });
+  }
+
+  getCompletedWorkoutsCount() {
+    this.firebaseService.countCompletedWorkouts(this.user.uid).subscribe(count => {
+      this.completedWorkoutsCount = count;
+    });
   }
 
   async addOrSelectedWorkout(workout?: Workout) {
