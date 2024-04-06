@@ -4,6 +4,7 @@ export interface Workout {
   description: string;
   datetime: string;
   exercises: Exercise[];
+  completed: boolean;
  }
 
  export interface Exercise {
