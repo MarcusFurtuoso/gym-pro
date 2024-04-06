@@ -47,12 +47,6 @@ export class FirebaseService {
     return updateProfile(auth.currentUser, user);
   }
 
-  async getUserCreationDate() {
-    return this.auth.currentUser.then((user) => {
-      return user.metadata.creationTime;
-    });
-  }
-
   getUserAttributes() {
     return this.userCollection.snapshotChanges().pipe(
       map((actions) => {
@@ -87,11 +81,10 @@ export class FirebaseService {
   loginWithGoogle() {
     from(this.loginProvider(new GoogleAuthProvider())).subscribe({
       next: (res: any) => {
-        console.log('AQQQQQ' + res.data);
         this.utilService.routerLink('/tabs/home');
       },
       error: (error) => {
-        console.log('AAAAAAAAA' + error.message);
+        console.log(error.message);
       },
     });
   }
@@ -120,10 +113,13 @@ export class FirebaseService {
             uid: user.uid,
             name: user.displayName,
             email: user.email,
+            height: '',
+            weight: '',
+            age: '',
           };
           this.utilService.setElementFromLocalStorage('user', userData);
-          this.utilService.routerLink('/tabs/home');
-          return userRef.set(userData, { merge: true });
+          userRef.set(userData, { merge: true });
+          return this.utilService.routerLink('/tabs/home');
         }
       })
     );
@@ -147,5 +143,32 @@ export class FirebaseService {
 
   deleteDocument(path: string) {
     return this.db.doc(path).delete();
+  }
+
+  // Workouts
+  userWorkoutsCount(userId: string) {
+    const userRef: AngularFirestoreDocument<any> = this.db.doc(
+      `Users/${userId}`
+    );
+
+    return userRef
+      .collection('workouts')
+      .valueChanges()
+      .pipe(map((workouts) => workouts.length));
+  }
+
+  countCompletedWorkouts(userId: string) {
+    const userRef: AngularFirestoreDocument<any> = this.db.doc(
+      `Users/${userId}`
+    );
+
+    return userRef
+      .collection('workouts')
+      .valueChanges()
+      .pipe(
+        map(
+          (workouts) => workouts.filter((workout) => workout['completed']).length
+        )
+      );
   }
 }

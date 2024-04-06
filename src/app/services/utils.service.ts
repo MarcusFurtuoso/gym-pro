@@ -77,15 +77,4 @@ export class UtilsService {
     this.modalController.dismiss(data);
   }
 
-
-  // Get Percentage
-  // getPercentage(task: Task) {
-  //   let completedItems = task.items.filter(item => item.completed).length;
-  //   let totalItems = task.items.length;
-
-  //   let percentage = (100/totalItems) * completedItems;
-
-  //   return parseInt(percentage.toString());
-  // }
-
 }
