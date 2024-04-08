@@ -14,10 +14,11 @@ import { AddSelectWorkoutComponent } from './components/add-select-workout/add-s
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
+import { ExerciseDetailsComponent } from './components/exercise-details/exercise-details.component';
 
 @NgModule({
-  declarations: [ForgotPasswordComponent, HeaderComponent, LogoComponent, CustomInputComponent, AddSelectWorkoutComponent, EditProfileComponent, PrivacyPolicyComponent, NotificationsComponent, SupportComponent],
-  exports: [ReactiveFormsModule, NgCircleProgressModule, ForgotPasswordComponent, HeaderComponent, LogoComponent, CustomInputComponent, AddSelectWorkoutComponent, EditProfileComponent, PrivacyPolicyComponent, NotificationsComponent, SupportComponent],
+  declarations: [ForgotPasswordComponent, HeaderComponent, LogoComponent, CustomInputComponent, AddSelectWorkoutComponent, EditProfileComponent, PrivacyPolicyComponent, NotificationsComponent, SupportComponent, ExerciseDetailsComponent],
+  exports: [ReactiveFormsModule, NgCircleProgressModule, ForgotPasswordComponent, HeaderComponent, LogoComponent, CustomInputComponent],
   imports: [
     CommonModule,
     IonicModule,

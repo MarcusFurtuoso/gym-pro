@@ -16,6 +16,14 @@ const routes: Routes = [
         path: 'profile',
         loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
       },
+      {
+        path: 'progress',
+        loadChildren: () => import('./progress/progress.module').then( m => m.ProgressPageModule)
+      },
+      {
+        path: 'exercises',
+        loadChildren: () => import('./exercises/exercises.module').then( m => m.ExercisesPageModule)
+      },
     ]
   },
 

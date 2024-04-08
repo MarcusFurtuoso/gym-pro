@@ -1,0 +1,92 @@
+.title {
+  font-size: 23px;
+  font-weight: bold;
+  font-style: italic;
+  padding-bottom: 10px;
+  color: var(--ion-color-primary-contrast);
+}
+
+.content {
+  padding: 30px 20px 10px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.category-list {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 10px;
+}
+
+.category-item {
+  padding-right: 10px;
+  flex: 0 0 auto;
+}
+
+ion-item {
+  --border-width: 2px;
+  --border-color: var(--ion-color-item-border);
+  --border-radius: 25px;
+
+  ion-label {
+    font-size: 16px;
+  }
+}
+
+ion-item.selected {
+  --border-color: var(--ion-color-secondary);
+  --color: var(--ion-color-secondary);
+}
+
+.card-exercises {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+ion-card {
+  border-radius: 10px;
+  margin: 0 0px 15px 0;
+  padding: 0;
+  height: 90px;
+  border: 1px solid var(--ion-color-item-border);
+}
+
+.card-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 10px 20px 10px;
+}
+
+.exercise-image {
+  width: 70px;
+  padding-right: 5px;
+}
+
+.exercise-details {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+
+  ion-card-title {
+    font-size: 16px;
+    font-weight: bold;
+    font-style: italic;
+    color: var(--ion-color-primary-contrast);
+    padding-bottom: 10px;
+  }
+
+  ion-card-subtitle {
+    font-size: 14px;
+    color: var(--ion-color-medium-tint);
+    text-transform: none;
+  }
+}
+
+ion-icon {
+  font-size: 20px;
+  margin-left: auto;
+}

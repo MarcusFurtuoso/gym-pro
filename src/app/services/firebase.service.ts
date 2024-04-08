@@ -167,8 +167,14 @@ export class FirebaseService {
       .valueChanges()
       .pipe(
         map(
-          (workouts) => workouts.filter((workout) => workout['completed']).length
+          (workouts) =>
+            workouts.filter((workout) => workout['completed']).length
         )
       );
+  }
+
+  // Exercises
+  getExercises() {
+    return this.db.collection('Exercise').valueChanges();
   }
 }

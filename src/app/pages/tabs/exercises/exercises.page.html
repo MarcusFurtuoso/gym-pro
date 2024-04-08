@@ -1,0 +1,38 @@
+<ion-content>
+  <app-header [centerTitle]="true" title="Exercises"></app-header>
+
+  <div class="content">
+    <ion-label class="title">Categories</ion-label>
+
+    <div class="category-list">
+      <ion-item
+        lines="none"
+        [button]="true"
+        class="category-item"
+        [class.selected]="category === selectedCategory"
+        *ngFor="let category of categories"
+        (click)="selectCategory(category)"
+      >
+        <ion-label>{{ category }}</ion-label>
+      </ion-item>
+    </div>
+
+    <div class="card-exercises">
+      <ion-card *ngFor="let exercise of filteredExercises" [button]="true" (click)="exerciseDetails(exercise)" mode="ios">
+        <div class="card-content">
+          <img src="assets/imgs/exercise-flexao.svg" class="exercise-image" />
+          <div class="exercise-details">
+            <ion-card-title>{{ exercise.name }}</ion-card-title>
+            <ion-card-subtitle mode="ios">{{ exercise.description }}</ion-card-subtitle>
+          </div>
+          <ion-icon
+            color="secondary"
+            name="chevron-forward-outline"
+            class="forward-arrow"
+          ></ion-icon>
+        </div>
+      </ion-card>
+
+    </div>
+  </div>
+</ion-content>
