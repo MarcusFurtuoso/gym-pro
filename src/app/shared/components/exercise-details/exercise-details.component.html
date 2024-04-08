@@ -1,0 +1,19 @@
+<ion-content>
+  <app-header
+    [isModal]="true"
+    [centerTitle]="true"
+    titleButton="{{ exercise.name }}"
+  ></app-header>
+
+  <div class="content">
+    <ion-card *ngFor="let exercises of exercise.exercises" mode="ios" class="ion-text-center">
+      <img alt="Silhouette of mountains" src="assets/imgs/crucifixo.svg" />
+      <ion-card-header class="ion-text-center">
+        <ion-card-title>{{ exercises.name }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="ion-text-justify">
+        {{ exercises.description }}
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

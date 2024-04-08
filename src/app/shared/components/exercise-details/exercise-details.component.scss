@@ -1,0 +1,36 @@
+.content {
+  padding: 10px 20px 10px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 23px;
+  font-weight: bold;
+  font-style: italic;
+  padding-bottom: 10px;
+  color: var(--ion-color-primary-contrast);
+}
+
+ion-card {
+  img {
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    background-position: center;
+  }
+  ion-card-header {
+    padding: 5px 16px;
+    color: var(--ion-color-primary-contrast);
+  }
+  border: 1px solid var(--ion-color-item-rgba);
+  border-radius: 20px;
+  margin: 10px;
+  // max-height: 300px;
+}
+
+.overlapping-header {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
