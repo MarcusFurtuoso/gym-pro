@@ -1,5 +1,11 @@
 <ion-header class="ion-no-border">
   <ion-toolbar [color]="color ? color : 'primary'">
+    <!-- closed modal  -->
+    <ion-buttons *ngIf="isModal" slot="end">
+      <ion-button (click)="dimissModal()">
+        <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <!-- Back Button  -->
     <ion-back-button
       *ngIf="backButton"
@@ -8,14 +14,20 @@
     ></ion-back-button>
 
     <ion-title
-      *ngIf="titleButton"
+      *ngIf="titleButton && !isModal"
       [ngClass]="{ 'ion-text-center': centerTitle, 'title-button': true }"
       >{{ titleButton }}
     </ion-title>
 
     <ion-title
+      *ngIf="titleButton && isModal"
+      [ngClass]="{ 'ion-text-center': centerTitle, 'title-button-modal': true }"
+      >{{ titleButton }}
+    </ion-title>
+
+    <ion-title
       *ngIf="title"
-      [ngClass]="{ 'ion-text-center': centerTitle, 'title': true }"
+      [ngClass]="{ 'ion-text-center': centerTitle, title: true }"
       >{{ title }}
     </ion-title>
   </ion-toolbar>
