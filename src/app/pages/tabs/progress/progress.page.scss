@@ -1,0 +1,56 @@
+ion-card {
+  border-radius: 15px;
+  min-width: 90%;
+  min-height: 100px;
+  border: 1px solid rgba(255,255,255,0.160);
+  margin-top: 0px;
+}
+
+.info-box {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+
+}
+
+.title {
+  font-size: 15px;
+  font-weight: bold;
+  color: var(--ion-color-dark);
+  text-align: start;
+  margin: 0;
+  margin-top: 15px;
+}
+
+.value {
+  color: var(--ion-color-secondary);
+  font-size: 17px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+ion-card-header{
+  padding: 0 16px 5px 16px;
+  text-align: center;
+  ion-card-title {
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    padding-top: 0;
+    margin: 0 0px 0px 5px;
+  }
+}
+
+.total-workouts, .target-days, .target-wheight {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  ion-icon, img {
+    color: var(--ion-color-secondary);
+    font-size: 20px;
+    padding-bottom: 10px;
+    padding-right: 5px;
+  }
+}
+
