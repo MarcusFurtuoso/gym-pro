@@ -29,7 +29,7 @@
                     <p class="title">Target days:</p>
                     <div class="target-days">
                       <ion-icon name="calendar-number"></ion-icon>
-                      <p class="value">{{ weeklyUserCount }}/{{ weeklyWorkoutsTargets }}</p>
+                      <p class="value">{{ weeklyUserCount }}/{{ targetDays }}</p>
                     </div>
                     <p class="title">Longer sequence:</p>
                     <p class="value">10 Days</p>
@@ -63,15 +63,15 @@
               </ion-col>
               <ion-col class="ion-text-start ion-margin-horizontal">
                 <div class="info-box">
+                  <p class="title">Target Workouts:</p>
+                  <div class="total-workouts">
+                    <ion-icon slot="start" name="checkmark-outline"></ion-icon>
+                    <p class="value">{{ completedWorkouts }}/{{targetWorkouts}}</p>
+                  </div>
                   <p class="title">Total Workouts:</p>
                   <div class="total-workouts">
                     <ion-icon slot="start" name="barbell-outline"></ion-icon>
-                    <p class="value">{{ workoutCount }}</p>
-                  </div>
-                  <p class="title">Completeds:</p>
-                  <div class="total-workouts">
-                    <ion-icon slot="start" name="checkmark-outline"></ion-icon>
-                    <p class="value">{{ completedWorkoutsCount }}</p>
+                    <p class="value">{{ totalWorkouts }}</p>
                   </div>
                 </div>
               </ion-col>

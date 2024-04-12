@@ -1,5 +1,6 @@
 import { UtilsService } from './../../../services/utils.service';
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { User } from 'src/app/models/user.model';
 
 import { FirebaseService } from 'src/app/services/firebase.service';
@@ -11,13 +12,15 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 })
 export class ProgressPage implements OnInit {
   user = {} as User;
-  workoutCount: number;
-  completedWorkoutsCount: number;
+
+  totalWorkouts: number;
+  completedWorkouts: number;
   weightToGainOrLose: number;
 
-  targetWeight = 70;
+  targetWeight: any;
+  targetDays: any;
+  targetWorkouts: any;
 
-  weeklyWorkoutsTargets = 7;
   weeklyUserCount = 5;
 
   constructor(
@@ -25,30 +28,51 @@ export class ProgressPage implements OnInit {
     private utilsService: UtilsService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getUserLocalStorage();
+  }
 
   ionViewWillEnter() {
-    this.getUserLocalStorage();
-    this.getUserWorkoutsCount();
-    this.getCompletedWorkoutsCount();
-    this.calculateTargetWeight();
+    this.getTargets();
   }
 
   getUserLocalStorage() {
     this.user = this.utilsService.getElementFromLocalStorage('user');
   }
 
+  getTargets() {
+    this.firebaseService.getTargets(this.user.uid).subscribe((targets) => {
+      this.targetDays = targets
+        .filter((target) => target['type'] === 'days')
+        .map((target) => Number(target['valor']));
+      this.calculatePercentageDays();
+
+      this.targetWeight = targets
+        .filter((target) => target['type'] === 'weight')
+        .map((target) => Number(target['valor']));
+      this.calculateTargetWeight();
+      this.calculatePercentageWeight();
+
+      this.targetWorkouts = targets
+        .filter((target) => target['type'] === 'workouts')
+        .map((target) => Number(target['valor']))[0];
+      this.getUserWorkoutsCount();
+      this.getCompletedWorkoutsCount();
+      this.calculatePercentageWorkout();
+    });
+  }
+
   getUserWorkoutsCount() {
     this.firebaseService
       .userWorkoutsCount(this.user.uid)
-      .subscribe((count) => (this.workoutCount = count));
+      .subscribe((count) => (this.totalWorkouts = count));
   }
 
   getCompletedWorkoutsCount() {
     this.firebaseService
       .countCompletedWorkouts(this.user.uid)
       .subscribe((count) => {
-        this.completedWorkoutsCount = count;
+        this.completedWorkouts = count;
       });
   }
 
@@ -57,11 +81,18 @@ export class ProgressPage implements OnInit {
   }
 
   calculatePercentageWorkout() {
-    if (this.workoutCount > 0 &&this.completedWorkoutsCount <= this.workoutCount) {
-      const percentage = (this.completedWorkoutsCount / this.workoutCount) * 100;
+    if (this.completedWorkouts == 0) {
+      return 0;
+    }
+    if (
+      this.totalWorkouts > 0 &&
+      this.completedWorkouts <= this.targetWorkouts
+    ) {
+      const percentage =
+        (this.completedWorkouts / this.targetWorkouts) * 100;
       return percentage;
     }
-    return 0;
+    return 100;
   }
 
   calculatePercentageWeight() {
@@ -74,7 +105,10 @@ export class ProgressPage implements OnInit {
   }
 
   calculatePercentageDays() {
-    const percentage = (this.weeklyUserCount / this.weeklyWorkoutsTargets) * 100;
+    const percentage = (this.weeklyUserCount / this.targetDays) * 100;
+    if (percentage > 100) {
+      return 100;
+    }
     return percentage;
   }
 }
