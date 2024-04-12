@@ -1,0 +1,50 @@
+<div class="content">
+  <ion-label class="ion-text-center title">Set your targets!</ion-label>
+
+      <div class="card-targets">
+        <ion-label class="ion-text-center title-card">Consecutive days worked out targets</ion-label>
+        <ion-card mode="ios">
+          <div class="card-content">
+            <img src="assets/icon/calendario-70-filled.png" class="exercise-image"/>
+            <form [formGroup]="daysForm">
+            <div class="exercise-details">
+              <ion-label position="stacked">Target:</ion-label>
+              <ion-input color="dark" formControlName="valor" type="text"></ion-input>
+            </div>
+          </form>
+          </div>
+        </ion-card>
+      </div>
+
+      <div class="card-targets">
+        <ion-label class="ion-text-center title-card">Weekly workout targets</ion-label>
+        <ion-card mode="ios">
+          <div class="card-content">
+            <img src="assets/icon/haltere-70-filled.png" class="exercise-image"/>
+            <form [formGroup]="workoutsForm">
+            <div class="exercise-details">
+              <ion-label position="stacked">Target:</ion-label>
+              <ion-input color="dark" formControlName="valor" type="text"></ion-input>
+            </div>
+          </form>
+          </div>
+        </ion-card>
+      </div>
+
+      <div class="card-targets">
+        <ion-label class="ion-text-center title-card">Weight targets</ion-label>
+        <ion-card mode="ios">
+          <div class="card-content">
+            <img src="assets/icon/icons8-peso-kg-70.png" class="exercise-image"/>
+            <form [formGroup]="weightForm">
+            <div class="exercise-details">
+              <ion-label position="stacked">Target:</ion-label>
+              <ion-input color="dark" formControlName="valor" type="text"></ion-input>
+            </div>
+          </form>
+          </div>
+        </ion-card>
+      </div>
+
+  </div>
+

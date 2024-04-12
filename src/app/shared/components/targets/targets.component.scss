@@ -1,0 +1,77 @@
+.content {
+  padding: 30px 20px 10px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 23px;
+  font-weight: bold;
+  font-style: italic;
+  padding-bottom: 30px;
+  color: var(--ion-color-primary-contrast);
+}
+
+.title-card {
+  font-size: 16px;
+  font-weight: bold;
+  // font-style: italic;
+  padding-bottom: 5px;
+  color: var(--ion-color-primary-contrast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-targets {
+  margin-top: 10px;
+}
+
+ion-card {
+  border-radius: 10px;
+  margin: 0 0px 15px 0;
+  padding: 0;
+  height: 90px;
+  border: 1px solid var(--ion-color-item-border);
+}
+
+.card-content {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding: 10px 10px 10px 10px;
+}
+
+.exercise-image {
+  width: 70px;
+  padding-right: 10px;
+  padding-bottom: 30px;
+}
+
+.exercise-details {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  width: 135px;
+  ion-label {
+    font-size: 16px;
+    font-weight: bold;
+    font-style: italic;
+    color: var(--ion-color-primary-contrast);
+    padding-bottom: 0px;
+    margin: 0;
+  }
+
+
+  ion-input {
+    font-size: 14px;
+    color: var(--ion-color-primary-contrast);
+    text-transform: none;
+    margin-bottom: 20px;
+    padding: 0;
+    border-bottom: 1px solid var(--ion-color-item-border);
+  }
+
+}
+

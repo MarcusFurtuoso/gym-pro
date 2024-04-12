@@ -15,10 +15,11 @@ import { EditProfileComponent } from './components/edit-profile/edit-profile.com
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { ExerciseDetailsComponent } from './components/exercise-details/exercise-details.component';
+import { TargetsComponent } from './components/targets/targets.component';
 
 @NgModule({
-  declarations: [ForgotPasswordComponent, HeaderComponent, LogoComponent, CustomInputComponent, AddSelectWorkoutComponent, EditProfileComponent, PrivacyPolicyComponent, NotificationsComponent, SupportComponent, ExerciseDetailsComponent],
-  exports: [ReactiveFormsModule, NgCircleProgressModule, ForgotPasswordComponent, HeaderComponent, LogoComponent, CustomInputComponent],
+  declarations: [ForgotPasswordComponent, HeaderComponent, LogoComponent, CustomInputComponent, AddSelectWorkoutComponent, EditProfileComponent, PrivacyPolicyComponent, NotificationsComponent, SupportComponent, ExerciseDetailsComponent, TargetsComponent],
+  exports: [ReactiveFormsModule, NgCircleProgressModule, ForgotPasswordComponent, HeaderComponent, LogoComponent, CustomInputComponent, TargetsComponent],
   imports: [
     CommonModule,
     IonicModule,
