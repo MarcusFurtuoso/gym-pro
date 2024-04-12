@@ -57,6 +57,7 @@ export class ExercisesPage implements OnInit {
   getExercises() {
     this.firebaseService.getExercises().subscribe((exercises: Exercise[]) => {
       this.exercises = exercises;
+      console.log(this.exercises);
       this.filterExercises();
     });
   }
