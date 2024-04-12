@@ -32,8 +32,7 @@ export class WorkoutsPage implements OnInit {
   }
 
   getWorkouts() {
-    let user: User = this.utilsService.getElementFromLocalStorage('user');
-    let path = `Users/${user.uid}`;
+    let path = `Users/${this.user.uid}`;
 
     this.loading = true;
 
