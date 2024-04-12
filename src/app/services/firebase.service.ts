@@ -177,4 +177,10 @@ export class FirebaseService {
   getExercises() {
     return this.db.collection('Exercise').valueChanges();
   }
+
+  // Targets
+  getTargets(userId: string) {
+    let path = `Users/${userId}/targets`;
+    return this.db.collection(path).valueChanges();
+  }
 }
