@@ -1,0 +1,19 @@
+.button-save {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+  width: 100%;
+
+  ion-button {
+    --border-radius: 15px;
+    --background: var(--ion-color-secondary);
+    --color: var(--ion-color-primary);
+    font-size: 15px;
+    width: 360px;
+    margin: 0 20px 0 20px;
+  }
+}
+
+ion-footer{
+  background: var(--ion-color-primary);
+}

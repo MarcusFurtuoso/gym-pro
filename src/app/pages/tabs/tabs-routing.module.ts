@@ -24,9 +24,13 @@ const routes: Routes = [
         path: 'exercises',
         loadChildren: () => import('./exercises/exercises.module').then( m => m.ExercisesPageModule)
       },
+      {
+        path: 'challenges',
+        loadChildren: () => import('./challenges/challenges.module').then( m => m.ChallengesPageModule)
+      },
     ]
-  },
 
+  },
 
 ];
 

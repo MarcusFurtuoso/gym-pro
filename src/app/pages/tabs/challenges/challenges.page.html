@@ -1,0 +1,38 @@
+<ion-content fullscreen="true">
+  <ion-header>
+    <ion-toolbar>
+      <ion-segment
+        color="secondary"
+        value="targets"
+        (ionChange)="segmentChanged($event)"
+      >
+        <ion-segment-button value="targets">
+          <ion-label color="dark">Targets</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="challenges">
+          <ion-label color="dark">Challenges</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
+  </ion-header>
+
+  <div *ngIf="selectedSegment === 'targets'">
+      <app-targets
+       (formValues)="onFormValues($event)"
+       (formValidity)="onFormValidity($event)">
+      </app-targets>
+  </div>
+
+  <div *ngIf="selectedSegment === 'challenges'">
+
+  </div>
+</ion-content>
+<ion-footer *ngIf="selectedSegment === 'targets'" class="footer">
+  <div class="button-save">
+    <ion-button class="ion-margin"(click)="submit()" [disabled]="!isFormValid" shape="round">
+      Save changes
+    </ion-button>
+  </div>
+</ion-footer>
+
+
