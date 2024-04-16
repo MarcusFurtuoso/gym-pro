@@ -1,0 +1,73 @@
+<ion-content [fullscreen]="true">
+  <div class="image-gym">
+    <ion-buttons slot="end">
+      <ion-button class="overlapping-header" (click)="closeModal()">
+        <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </div>
+
+  <div class="content">
+    <div class="header">
+      <h1>{{ training.title }}</h1>
+      <h2>{{ training.quantify }}</h2>
+
+      <div class="chips">
+        <ion-chip class="ion-no-margin">
+          <ion-icon color="dark" name="play-circle"></ion-icon>
+          <ion-label>{{ training.time }}</ion-label>
+        </ion-chip>
+        <ion-chip>
+          <ion-icon color="dark" name="flame"></ion-icon>
+          <ion-label>{{ training.calories }}</ion-label>
+        </ion-chip>
+      </div>
+
+      <h3>{{ training.description }}</h3>
+    </div>
+
+    <div *ngFor="let workout of trainings" class="card-workouts">
+      <ion-card
+        mode="ios"
+        [button]="true"
+        (click)="toggleAccordion(workout.id)"
+      >
+        <div class="card-content">
+          <img src="assets/imgs/Image.png" class="exercise-image" />
+          <div class="title-details">
+            <ion-label color="dark">{{ workout.title }}</ion-label>
+            <ion-label color="secondary">{{ workout.time }}</ion-label>
+          </div>
+          <ion-icon
+            color="secondary"
+            name="chevron-down"
+            class="forward-arrow"
+          ></ion-icon>
+        </div>
+
+        <div class="exercises" *ngIf="isAccordionOpen(workout.id)">
+          <ion-label *ngFor="let exercise of workout.exercises"
+            >- {{ exercise }}</ion-label
+          >
+        </div>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>
+
+<!-- <div *ngFor="let card of cards">
+  <ion-card mode="ios" [button]="true" (click)="toggleAccordion(card.id)">
+    <div class="card-content">
+      <img src="assets/imgs/Image.png" class="exercise-image" />
+      <div class="title-details">
+        <ion-label>{{ card.title }}</ion-label>
+        <ion-label>Exercises</ion-label>
+        <ion-label>0:30</ion-label>
+      </div>
+      <ion-icon color="secondary" name="chevron-down" class="forward-arrow"></ion-icon>
+    </div>
+    <div class="exercises" *ngIf="isAccordionOpen(card.id)">
+      <ion-label *ngFor="let exercise of card.exercises">{{ exercise }}</ion-label>
+    </div>
+  </ion-card>
+</div> -->

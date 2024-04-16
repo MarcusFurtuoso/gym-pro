@@ -183,4 +183,9 @@ export class FirebaseService {
     let path = `Users/${userId}/targets`;
     return this.db.collection(path).valueChanges();
   }
+
+  // Trainings
+  getTrainings() {
+    return this.db.collection('Trainings').valueChanges({ idField: 'id' });
+  }
 }

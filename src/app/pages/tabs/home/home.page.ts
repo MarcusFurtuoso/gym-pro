@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, filter, interval, take } from 'rxjs';
+import { Training } from 'src/app/models/training.model';
 import { User } from 'src/app/models/user.model';
 import { Workout } from 'src/app/models/workout.model';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { UtilsService } from 'src/app/services/utils.service';
-import { AddSelectWorkoutComponent } from 'src/app/shared/components/add-select-workout/add-select-workout.component';
+import { SelectTrainingComponent } from 'src/app/shared/components/select-training/select-training.component';
 
 @Component({
   selector: 'app-home',
@@ -18,6 +19,8 @@ export class HomePage implements OnInit {
   loading: boolean = false;
   currentDate: string;
 
+  trainings: Training[] = [];
+
   constructor(
     private firebaseService: FirebaseService,
     private utilsService: UtilsService
@@ -27,7 +30,7 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit() {
-
+    this.getTrainings();
   }
 
   ionViewWillEnter() {
@@ -48,13 +51,22 @@ export class HomePage implements OnInit {
     );
   }
 
-  async selectedWorkout(workout?: Workout) {
+  async selectedTraining(training: Training) {
     await this.utilsService.presentModal({
-      component: AddSelectWorkoutComponent,
+      component: SelectTrainingComponent,
       componentProps: {
-        workout,
+        training,
       },
       cssClass: '.add-update-modal',
+    });
+  }
+
+  getTrainings() {
+    this.loading = true;
+    this.firebaseService.getTrainings().subscribe((trainings: Training[]) => {
+      this.trainings = trainings;
+      this.loading = false;
+      console.log('trainings', this.trainings);
     });
   }
 }

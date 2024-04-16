@@ -1,0 +1,117 @@
+.image-gym {
+  background-image: url("/assets/imgs/girl.svg");
+  background-size: cover; /* Isso irá cobrir o espaço disponível */
+  background-position: center;
+  width: 100%;
+  height: 180px;
+  position: relative;
+}
+
+.overlapping-header {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.content {
+  width: 100%;
+  min-height: 80vh;
+  background: var(--ion-color-primary);
+  color: var(--ion-color-light-contrast);
+  border-radius: 20px 15px 0 0;
+  margin-top: -25px;
+  position: relative;
+  padding: 0 20px;
+}
+
+.header {
+  margin-top: -35px;
+
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+    font-style: italic;
+    padding-top: 30px;
+  }
+
+  h2 {
+    margin-top: 0;
+    color: var(--ion-color-secondary);
+    font-size: 17px;
+    font-style: italic;
+  }
+
+  .chips {
+    align-items: center;
+    padding: 10px 0;
+
+    ion-chip {
+      margin-right: 10px;
+    }
+  }
+
+  h3 {
+    margin-top: 20px;
+    text-align: left;
+  }
+}
+
+.card-workouts {
+  padding-top: 20px;
+}
+
+ion-card {
+  border-radius: 15px;
+  margin: 0 0px 10px 0;
+  padding: 0;
+  border: 1px solid var(--ion-color-item-border);
+}
+
+.card-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-bottom: 1px solid var(--ion-color-item-border);
+}
+
+.title-details {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  ion-label {
+    font-size: 16px;
+    font-weight: bold;
+    font-style: italic;
+    padding-bottom: 0px;
+    margin: 0;
+  }
+}
+
+.exercise-image {
+  max-width: 100px;
+  max-height: 80px;
+  padding-right: 10px;
+}
+
+.exercises {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  justify-content: space-between;
+
+  ion-label {
+    flex: 0 0 calc(35%);
+    font-size: 14px;
+    text-align: start;
+    padding: 15px 0 10px 2px;
+    color: var(--ion-color-primary-contrast);
+  }
+}
+
+.forward-arrow {
+  font-size: 20px;
+  padding-right: 10px;
+  margin-left: auto;
+}
