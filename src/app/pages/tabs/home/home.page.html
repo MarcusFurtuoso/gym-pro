@@ -28,27 +28,11 @@
         <ion-card-title>Workout categories</ion-card-title>
       </ion-card-header>
 
-      <ion-card class="card-categories" (click)="selectedWorkout()">
+      <ion-card *ngFor="let trainning of trainings" class="card-categories" (click)="selectedTraining(trainning)">
         <div class="card-content">
           <ion-card-content>
-            <h1>Training for Beginner</h1>
-            <h2>| 06 Workouts for Beginner</h2>
-          </ion-card-content>
-        </div>
-      </ion-card>
-      <ion-card class="card-categories">
-        <div class="card-content">
-          <ion-card-content>
-            <h1>Training for Intermediate</h1>
-            <h2>| 06 Workouts for Intermediate</h2>
-          </ion-card-content>
-        </div>
-      </ion-card>
-      <ion-card class="card-categories">
-        <div class="card-content">
-          <ion-card-content>
-            <h1>Training for Advanced</h1>
-            <h2>| 06 Workouts for Advanced</h2>
+            <h1>{{ trainning.title }}</h1>
+            <h2>| {{ trainning.quantify }}</h2>
           </ion-card-content>
         </div>
       </ion-card>
