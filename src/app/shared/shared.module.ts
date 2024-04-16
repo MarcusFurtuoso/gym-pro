@@ -16,10 +16,12 @@ import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-poli
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { ExerciseDetailsComponent } from './components/exercise-details/exercise-details.component';
 import { TargetsComponent } from './components/targets/targets.component';
+import { ChallengesComponent } from './components/challenges/challenges.component';
+import { SelectTrainingComponent } from './components/select-training/select-training.component';
 
 @NgModule({
-  declarations: [ForgotPasswordComponent, HeaderComponent, LogoComponent, CustomInputComponent, AddSelectWorkoutComponent, EditProfileComponent, PrivacyPolicyComponent, NotificationsComponent, SupportComponent, ExerciseDetailsComponent, TargetsComponent],
-  exports: [ReactiveFormsModule, NgCircleProgressModule, ForgotPasswordComponent, HeaderComponent, LogoComponent, CustomInputComponent, TargetsComponent],
+  declarations: [ForgotPasswordComponent, HeaderComponent, LogoComponent, CustomInputComponent, AddSelectWorkoutComponent, EditProfileComponent, PrivacyPolicyComponent, NotificationsComponent, SupportComponent, ExerciseDetailsComponent, TargetsComponent, ChallengesComponent, SelectTrainingComponent],
+  exports: [ReactiveFormsModule, NgCircleProgressModule, ForgotPasswordComponent, HeaderComponent, LogoComponent, CustomInputComponent, TargetsComponent, ChallengesComponent],
   imports: [
     CommonModule,
     IonicModule,
