@@ -17,14 +17,14 @@
   </ion-header>
 
   <div *ngIf="selectedSegment === 'targets'">
-      <app-targets
+      <targets
        (formValues)="onFormValues($event)"
        (formValidity)="onFormValidity($event)">
-      </app-targets>
+      </targets>
   </div>
 
   <div *ngIf="selectedSegment === 'challenges'">
-
+    <challenges></challenges>
   </div>
 </ion-content>
 <ion-footer *ngIf="selectedSegment === 'targets'" class="footer">

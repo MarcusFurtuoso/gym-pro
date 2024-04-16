@@ -81,23 +81,18 @@ export class ChallengesPage implements OnInit {
     this.utilsService.presentLoading();
 
     const weightPath = `Users/${this.user.uid}/targets/${this.weightForm.value.id}`;
-    // delete this.weightForm.value.id;
     const weightUpdate = this.firebaseService.updateDocument(
       weightPath,
-      // this.weightForm.value
       { valor: this.weightForm.value.valor }
     );
 
     const daysPath = `Users/${this.user.uid}/targets/${this.daysForm.value.id}`;
-    // delete this.daysForm.value.id;
     const daysUpdate = this.firebaseService.updateDocument(
       daysPath,
-      // this.daysForm.value
       { valor: this.daysForm.value.valor }
     );
 
     const workoutsPath = `Users/${this.user.uid}/targets/${this.workoutsForm.value.id}`;
-    // delete this.workoutsForm.value.id;
     const workoutsUpdate = this.firebaseService.updateDocument(
       workoutsPath,
       { valor: this.workoutsForm.value.valor }
