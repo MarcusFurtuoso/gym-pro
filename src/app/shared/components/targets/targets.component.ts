@@ -6,7 +6,7 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
-  selector: 'app-targets',
+  selector: 'targets',
   templateUrl: './targets.component.html',
   styleUrls: ['./targets.component.scss'],
 })
