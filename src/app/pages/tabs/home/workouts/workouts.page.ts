@@ -96,7 +96,7 @@ export class WorkoutsPage implements OnInit {
     this.firebaseService.deleteDocument(path).then(
       (res) => {
         this.utilsService.presentToast({
-          message: 'Workout deleted successfully',
+          message: 'Workout deleted successfully!',
           color: 'secondary',
           icon: 'checkmark-circle-outline',
           duration: 1500,
