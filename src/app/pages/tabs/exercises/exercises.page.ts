@@ -12,6 +12,9 @@ import { ExerciseDetailsComponent } from 'src/app/shared/components/exercise-det
 })
 export class ExercisesPage implements OnInit {
   user = {} as User;
+
+  loading : boolean = true;
+
   exercises: Exercise[] = [];
   filteredExercises: Exercise[] = [];
   selectedCategory = 'All';
@@ -55,10 +58,13 @@ export class ExercisesPage implements OnInit {
   }
 
   getExercises() {
+    this.loading = true;
     this.firebaseService.getExercises().subscribe((exercises: Exercise[]) => {
       this.exercises = exercises;
       console.log(this.exercises);
       this.filterExercises();
+
+      this.loading = false;
     });
   }
 

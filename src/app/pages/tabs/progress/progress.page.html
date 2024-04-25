@@ -2,7 +2,7 @@
   <app-header title="Progress" [centerTitle]="true"></app-header>
 
   <div class="ion-margin-vertical">
-    <ion-grid class="">
+    <ion-grid *ngIf="!loading" class="">
       <ion-row class="">
         <ion-col sizeLg="6" sizeMd="6" sizeSm="12" size="12">
           <ion-card-header>
@@ -25,16 +25,15 @@
                 ></circle-progress>
               </ion-col>
               <ion-col class="ion-text-start ion-margin-horizontal">
-                  <div class="info-box">
-                    <p class="title">Target days:</p>
-                    <div class="target-days">
-                      <ion-icon name="calendar-number"></ion-icon>
-                      <p class="value">{{ weeklyUserCount }}/{{ targetDays }}</p>
-                    </div>
-                    <p class="title">Longer sequence:</p>
-                    <p class="value">10 Days</p>
+                <div class="info-box">
+                  <p class="title">Target days:</p>
+                  <div class="target-days">
+                    <ion-icon name="calendar-number"></ion-icon>
+                    <p class="value">{{ weeklyUserCount }}/{{ targetDays }}</p>
                   </div>
-
+                  <p class="title">Longer sequence:</p>
+                  <p class="value">10 Days</p>
+                </div>
               </ion-col>
             </ion-row>
           </ion-card>
@@ -66,7 +65,9 @@
                   <p class="title">Target Workouts:</p>
                   <div class="total-workouts">
                     <ion-icon slot="start" name="checkmark-outline"></ion-icon>
-                    <p class="value">{{ completedWorkouts }}/{{targetWorkouts}}</p>
+                    <p class="value">
+                      {{ completedWorkouts }}/{{targetWorkouts}}
+                    </p>
                   </div>
                   <p class="title">Total Workouts:</p>
                   <div class="total-workouts">
@@ -101,29 +102,93 @@
                 ></circle-progress>
               </ion-col>
               <ion-col class="ion-text-start ion-margin-horizontal">
-
-                  <div class="info-box">
-                    <p class="title">Target Weight:</p>
-                    <div class="target-wheight">
-                      <img src="assets/icon/weight-filled.png" alt="">
-                      <p class="value">{{ user.weight }}/{{ targetWeight }} kg</p>
-                    </div>
-                    <p *ngIf="weightToGainOrLose > 0" class="title">Weight to gain:</p>
-                    <p *ngIf="weightToGainOrLose < 0" class="title">Weight to lose:</p>
-                    <p *ngIf="weightToGainOrLose === 0" class="title">Target achieved!</p>
-                    <p *ngIf="weightToGainOrLose !== 0" class="value">
-                      {{ weightToGainOrLose > 0 ? '+' : '' }}{{ weightToGainOrLose }} kg
-                    </p>
-                    <p *ngIf="weightToGainOrLose === 0" class="value">
-                      <ion-icon slot="start" name="checkmark-circle"></ion-icon>
-                    </p>
+                <div class="info-box">
+                  <p class="title">Target Weight:</p>
+                  <div class="target-wheight">
+                    <img src="assets/icon/weight-filled.png" alt="" />
+                    <p class="value">{{ user.weight }}/{{ targetWeight }} kg</p>
                   </div>
-
+                  <p *ngIf="weightToGainOrLose > 0" class="title">
+                    Weight to gain:
+                  </p>
+                  <p *ngIf="weightToGainOrLose < 0" class="title">
+                    Weight to lose:
+                  </p>
+                  <p *ngIf="weightToGainOrLose === 0" class="title">
+                    Target achieved!
+                  </p>
+                  <p *ngIf="weightToGainOrLose !== 0" class="value">
+                    {{ weightToGainOrLose > 0 ? '+' : '' }}{{ weightToGainOrLose
+                    }} kg
+                  </p>
+                  <p *ngIf="weightToGainOrLose === 0" class="value">
+                    <ion-icon slot="start" name="checkmark-circle"></ion-icon>
+                  </p>
+                </div>
               </ion-col>
             </ion-row>
           </ion-card>
         </ion-col>
       </ion-row>
     </ion-grid>
+
+    <div *ngIf="loading">
+      <ion-row *ngFor="let item of [1,1,1]" class="">
+        <ion-col sizeLg="6" sizeMd="6" sizeSm="12" size="12">
+          <ion-card-header>
+            <ion-card-title class="d-flex-center">
+              <ion-skeleton-text
+                animated
+                style="width: 80%"
+              ></ion-skeleton-text>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card mode="ios">
+            <ion-row class="ion-justify-content-center">
+              <ion-col class="ion-text-center">
+                <div class="progress-skeleton">
+                  <ion-skeleton-text
+                  animated
+                  style="height: 120px;"
+                  ></ion-skeleton-text>
+                </div>
+              </ion-col>
+              <ion-col class="ion-text-start ion-margin-horizontal">
+                <div class="info-box">
+                  <p class="title">
+                    <ion-skeleton-text
+                      animated
+                      style="width: 100px"
+                    ></ion-skeleton-text>
+                  </p>
+                  <div class="target-days">
+                    <ion-skeleton-text
+                      animated
+                      style="width: 40px"
+                    ></ion-skeleton-text>
+                  </div>
+                </div>
+
+                <div class="info-box title-skeleton">
+                  <p class="title">
+                    <ion-skeleton-text
+                      animated
+                      style="width: 100px"
+                    ></ion-skeleton-text>
+                  </p>
+                  <div class="target-days">
+                    <ion-skeleton-text
+                      animated
+                      style="width: 40px"
+                    ></ion-skeleton-text>
+                  </div>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </div>
+
   </div>
 </ion-content>

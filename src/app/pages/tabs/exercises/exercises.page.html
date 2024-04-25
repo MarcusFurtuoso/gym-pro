@@ -17,13 +17,21 @@
       </ion-item>
     </div>
 
-    <div class="card-exercises">
-      <ion-card class="animate" *ngFor="let exercise of filteredExercises" [button]="true" (click)="exerciseDetails(exercise)" mode="ios">
+    <div *ngIf="!loading" class="card-exercises">
+      <ion-card
+        class="animate"
+        *ngFor="let exercise of filteredExercises"
+        [button]="true"
+        (click)="exerciseDetails(exercise)"
+        mode="ios"
+      >
         <div class="card-content">
           <img src="assets/imgs/exercise-flexao.svg" class="exercise-image" />
           <div class="exercise-details">
             <ion-card-title>{{ exercise.name }}</ion-card-title>
-            <ion-card-subtitle mode="ios">{{ exercise.description }}</ion-card-subtitle>
+            <ion-card-subtitle mode="ios"
+              >{{ exercise.description }}</ion-card-subtitle
+            >
           </div>
           <ion-icon
             color="secondary"
@@ -34,5 +42,36 @@
       </ion-card>
     </div>
 
+    <div *ngIf="loading" class="card-exercises">
+      <ion-card *ngFor="let item of [1,1,1,1,1,1]" mode="ios">
+        <div class="card-content-skeleton">
+          <div class="exercise-image">
+            <ion-skeleton-text
+              [animated]="true"
+              style="height: 50px"
+            ></ion-skeleton-text>
+          </div>
+          <div class="exercise-details">
+            <ion-skeleton-text
+              [animated]="true"
+              style="width: 50px"
+            ></ion-skeleton-text>
+            <ion-skeleton-text
+              [animated]="true"
+              style="width: 90px"
+            ></ion-skeleton-text>
+          </div>
+          <div
+            class="forward-arrow"
+          >
+            <ion-skeleton-text
+              [animated]="true"
+              style="width: 18px"
+            ></ion-skeleton-text>
+          </div>
+        </div>
+      </ion-card>
+    </div>
   </div>
+
 </ion-content>

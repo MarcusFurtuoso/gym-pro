@@ -1,17 +1,23 @@
 <div class="content">
-  <div class="level-container">
+  <div *ngIf="!loading">
     <div class="title ion-text-center">
       <ion-label>Your Progress: {{ completedChallengesPercentage }}%</ion-label>
     </div>
     <ion-range value="{{ completedChallengesPercentage }}"></ion-range>
   </div>
 
-  <div (click)="toggleAccordion('1')" class="card-title ion-margin-vertical">
+  <div
+    *ngIf="!loading"
+    (click)="toggleAccordion('1')"
+    class="card-title ion-margin-vertical"
+  >
     <ion-label color="dark">Ongoing</ion-label>
     <ion-icon
       color="secondary"
       name="chevron-down"
-      [style.transform]="isAccordionOpen('1') ? 'rotate(180deg)' : 'rotate(0deg)'"
+      [style.transform]="
+        isAccordionOpen('1') ? 'rotate(180deg)' : 'rotate(0deg)'
+      "
     ></ion-icon>
   </div>
 
@@ -21,22 +27,36 @@
         <div *ngIf="challengeForm.get('challenges')['controls'].length === 0">
           <ion-card mode="ios">
             <div class="card-content">
-              <img src="assets/icon/tarefa-concluida.png" class="exercise-image"/>
-                <div class="challenge-details">
-                  <ion-card-title>All the challenges have already been completed!</ion-card-title>
-                </div>
+              <img
+                src="assets/icon/tarefa-concluida.png"
+                class="exercise-image"
+              />
+              <div class="challenge-details">
+                <ion-card-title
+                  >All the challenges have already been
+                  completed!</ion-card-title
+                >
+              </div>
             </div>
           </ion-card>
         </div>
         <div
-          *ngFor="let challenge of challengeForm.get('challenges')['controls'];
-          let i = index" [formGroupName]="i"
+          *ngFor="
+            let challenge of challengeForm.get('challenges')['controls'];
+            let i = index
+          "
+          [formGroupName]="i"
         >
           <ion-card [button]="true" mode="ios">
             <div class="card-content">
-              <img src="{{ challenge.get('image').value }}" class="exercise-image"/>
+              <img
+                src="{{ challenge.get('image').value }}"
+                class="exercise-image"
+              />
               <div class="challenge-details">
-                <ion-card-title>{{challenge.get("title").value}}</ion-card-title>
+                <ion-card-title>{{
+                  challenge.get("title").value
+                }}</ion-card-title>
                 <ion-card-subtitle mode="ios">
                   {{ userWorkoutsCount }}/{{ challenge.get("target").value }} -
                   {{ challenge.get("xp").value }}
@@ -54,7 +74,11 @@
       </div>
     </div>
 
-    <div (click)="toggleAccordion('2')" class="card-title ion-margin-vertical">
+    <div
+      *ngIf="!loading"
+      (click)="toggleAccordion('2')"
+      class="card-title ion-margin-vertical"
+    >
       <ion-label color="dark">Completed</ion-label>
       <ion-icon
         color="secondary"
@@ -72,19 +96,24 @@
         mode="ios"
       >
         <div class="card-content">
-          <img src="assets/icon/icons8-troféu-70.png" class="exercise-image"/>
+          <img src="assets/icon/icons8-troféu-70.png" class="exercise-image" />
           <div class="challenge-details">
             <ion-card-title>{{ challenge.title }}</ion-card-title>
             <ion-card-subtitle mode="ios">
               {{ challenge.target }}/{{ challenge.target }} - {{ challenge.xp }}
             </ion-card-subtitle>
           </div>
-          <ion-checkbox slot="end" mode="md" checked="true" disabled="true"></ion-checkbox>
+          <ion-checkbox
+            slot="end"
+            mode="md"
+            checked="true"
+            disabled="true"
+          ></ion-checkbox>
         </div>
       </ion-card>
     </div>
 
-    <ion-footer class="footer">
+    <ion-footer *ngIf="!loading" class="footer">
       <div class="button-save">
         <ion-button
           (click)="submit()"
@@ -96,4 +125,56 @@
       </div>
     </ion-footer>
   </form>
+
+  <div *ngIf="loading" class="d-flex-center ion-padding-bottom">
+    <div>
+      <ion-label>
+        <ion-skeleton-text
+          [animated]="true"
+          style="width: 200px"
+        ></ion-skeleton-text>
+      </ion-label>
+    </div>
+    <ion-skeleton-text
+      [animated]="true"
+      style="width: 100%"
+    ></ion-skeleton-text>
+  </div>
+
+  <div *ngIf="loading" class="card-title ion-margin-vertical">
+    <ion-skeleton-text
+      [animated]="true"
+      style="width: 90px"
+    ></ion-skeleton-text>
+    <div>
+    <ion-skeleton-text
+      [animated]="true"
+      style="width: 18px"
+    ></ion-skeleton-text>
+    </div>
+  </div>
+
+  <div *ngIf="loading" class="card-title ion-margin-vertical">
+    <ion-skeleton-text
+      [animated]="true"
+      style="width: 90px"
+    ></ion-skeleton-text>
+    <div>
+    <ion-skeleton-text
+      [animated]="true"
+      style="width: 18px"
+    ></ion-skeleton-text>
+    </div>
+  </div>
+
+  <ion-footer *ngIf="loading" class="footer">
+    <div class="button-save-skeleton">
+      <ion-skeleton-text
+      [animated]="true"
+      style="height: 36px"
+    ></ion-skeleton-text>
+    </div>
+  </ion-footer>
+
+
 </div>

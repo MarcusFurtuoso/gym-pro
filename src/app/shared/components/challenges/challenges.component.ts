@@ -15,6 +15,8 @@ export class ChallengesComponent implements OnInit {
   user = {} as User;
   userWorkoutsCount: number;
 
+  loading: boolean = false;
+
   openAccordionId: string | null = null;
   showAccordion = false;
 
@@ -81,6 +83,8 @@ export class ChallengesComponent implements OnInit {
   }
 
   getChallenges() {
+    this.loading = true;
+
     this.firebaseService
       .getChallenges()
       .subscribe((challenges: Challenge[]) => {
@@ -89,6 +93,8 @@ export class ChallengesComponent implements OnInit {
         this.fillForms();
         this.createCollectionChallenges();
         this.getUserWorkoutsCount();
+
+
       });
   }
 
@@ -150,6 +156,7 @@ export class ChallengesComponent implements OnInit {
       (challenge: Challenge) => challenge.completed
     );
     this.calculateCompletedChallengesPercentage();
+    this.loading = false;
   }
 
   calculateCompletedChallengesPercentage(): number {
@@ -158,6 +165,7 @@ export class ChallengesComponent implements OnInit {
         (this.completedChallenges.length / this.challenges.length) * 100
       ));
     }
+
     return 0;
   }
 

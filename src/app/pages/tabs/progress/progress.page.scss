@@ -2,7 +2,7 @@ ion-card {
   border-radius: 15px;
   min-width: 90%;
   min-height: 100px;
-  border: 1px solid rgba(255,255,255,0.160);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   margin-top: 0px;
 }
 
@@ -10,7 +10,6 @@ ion-card {
   display: flex;
   flex-direction: column;
   align-items: start;
-
 }
 
 .title {
@@ -29,7 +28,7 @@ ion-card {
   margin-top: 10px;
 }
 
-ion-card-header{
+ion-card-header {
   padding: 0 16px 5px 16px;
   text-align: center;
   ion-card-title {
@@ -41,12 +40,15 @@ ion-card-header{
   }
 }
 
-.total-workouts, .target-days, .target-wheight {
+.total-workouts,
+.target-days,
+.target-wheight {
   display: flex;
   align-items: center;
   margin: 0;
   padding: 0;
-  ion-icon, img {
+  ion-icon,
+  img {
     color: var(--ion-color-secondary);
     font-size: 20px;
     padding-bottom: 10px;
@@ -54,3 +56,12 @@ ion-card-header{
   }
 }
 
+.progress-skeleton {
+  width: 142px;
+  padding: 10px;
+  border-radius: 60px;
+}
+
+.title-skeleton {
+  padding-top: 20px;
+}

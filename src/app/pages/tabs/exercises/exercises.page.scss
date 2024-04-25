@@ -105,3 +105,13 @@ ion-icon {
 .animate {
   animation: slideDown 0.4s ease-out;
 }
+
+.card-content-skeleton {
+  display: flex;
+  align-items: center;
+  padding: 20px 10px 20px 10px;
+}
+
+.forward-arrow {
+  margin-left: auto;
+}

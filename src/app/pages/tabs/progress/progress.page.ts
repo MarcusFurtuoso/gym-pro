@@ -12,6 +12,8 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 export class ProgressPage implements OnInit {
   user = {} as User;
 
+  loading: boolean = false;
+
   totalWorkouts: number;
   completedWorkouts: number;
   weightToGainOrLose: number;
@@ -40,17 +42,13 @@ export class ProgressPage implements OnInit {
   }
 
   getTargets() {
+    this.loading = true;
+
     this.firebaseService.getTargets(this.user.uid).subscribe((targets) => {
       this.targetDays = targets
         .filter((target) => target['type'] === 'days')
         .map((target) => Number(target['valor']));
       this.calculatePercentageDays();
-
-      this.targetWeight = targets
-        .filter((target) => target['type'] === 'weight')
-        .map((target) => Number(target['valor']));
-      this.calculateTargetWeight();
-      this.calculatePercentageWeight();
 
       this.targetWorkouts = targets
         .filter((target) => target['type'] === 'workouts')
@@ -58,6 +56,14 @@ export class ProgressPage implements OnInit {
       this.getUserWorkoutsCount();
       this.getCompletedWorkoutsCount();
       this.calculatePercentageWorkout();
+
+      this.targetWeight = targets
+        .filter((target) => target['type'] === 'weight')
+        .map((target) => Number(target['valor']));
+      this.calculateTargetWeight();
+      this.calculatePercentageWeight();
+
+
     });
   }
 
@@ -72,6 +78,7 @@ export class ProgressPage implements OnInit {
       .countCompletedWorkouts(this.user.uid)
       .subscribe((count) => {
         this.completedWorkouts = count;
+        this.loading = false;
       });
   }
 
@@ -87,8 +94,7 @@ export class ProgressPage implements OnInit {
       this.totalWorkouts > 0 &&
       this.completedWorkouts <= this.targetWorkouts
     ) {
-      const percentage =
-        (this.completedWorkouts / this.targetWorkouts) * 100;
+      const percentage = (this.completedWorkouts / this.targetWorkouts) * 100;
       return percentage;
     }
     return 100;
@@ -100,6 +106,7 @@ export class ProgressPage implements OnInit {
       return percentage;
     }
     const percentage = (this.targetWeight * 100) / Number(this.user.weight);
+
     return percentage;
   }
 

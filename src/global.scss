@@ -43,7 +43,6 @@ h1 {
 .content {
   width: 100%;
   min-height: 88vh;
-  // background: var(--ion-color-primary);
   --background: var(--ion-color-primary);
   --color: var(--ion-color-light-contrast);
 }
@@ -52,6 +51,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 ion-item {
@@ -99,6 +99,7 @@ span {
     background: black;
   }
 }
+
 @media screen and (max-width: 768px) {
   .add-update-modal {
     --height: 100%;
