@@ -33,8 +33,6 @@ export class ChallengesPage implements OnInit {
     this.getUserLocalStorage();
   }
 
-  ionViewWillEnter() {}
-
   getUserLocalStorage() {
     this.user = this.utilsService.getElementFromLocalStorage('user');
   }
@@ -71,11 +69,10 @@ export class ChallengesPage implements OnInit {
 
   submit() {
     if (this.weightForm.value.id && this.daysForm.value.id && this.workoutsForm.value.id) {
-        this.updateTargets();
-    } else {
-        this.createTargets();
+      return this.updateTargets();
     }
-}
+    return this.createTargets();
+  }
 
   updateTargets() {
     this.utilsService.presentLoading();

@@ -16,7 +16,9 @@ export class ProfilePage implements OnInit {
     private firebaseService: FirebaseService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    null;
+  }
 
   ionViewWillEnter() {
     this.getUserLocalStorage();

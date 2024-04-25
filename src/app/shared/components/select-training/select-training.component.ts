@@ -10,15 +10,11 @@ import { UtilsService } from 'src/app/services/utils.service';
 })
 export class SelectTrainingComponent implements OnInit {
   @Input() training: Training;
-  openAccordionId: string | null = null;
-  trainings = [];
 
-  cards = [
-    { id: 1, title: 'Simple Warm-Up', exercises: ['Exercise 01', 'Exercise 02', 'Exercise 03'] },
-    { id: 2, title: 'Advanced Warm-Up', exercises: ['Exercise 04', 'Exercise 05', 'Exercise 06'] },
-    // Adicione mais cards conforme necessário
-  ];
+  openAccordionId: string | null = null;
   showAccordion = false;
+
+  trainings = [];
 
   constructor(
     private firebaseService: FirebaseService,

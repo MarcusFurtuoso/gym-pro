@@ -1,6 +1,5 @@
 import { UtilsService } from './../../../services/utils.service';
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { User } from 'src/app/models/user.model';
 
 import { FirebaseService } from 'src/app/services/firebase.service';

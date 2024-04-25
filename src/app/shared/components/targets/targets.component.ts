@@ -14,7 +14,6 @@ export class TargetsComponent implements OnInit {
   user = {} as User;
   targets: Target[] = [];
 
-
   @Output() formValidity = new EventEmitter<{ weightValid: boolean, daysValid: boolean, workoutsValid: boolean }>();
 
   @Output() formValues = new EventEmitter<FormGroup>();
@@ -62,7 +61,6 @@ export class TargetsComponent implements OnInit {
     this.getTargets();
 
     this.weightForm.valueChanges.subscribe(() => {
-      // this.formValidity.emit(this.weightValid);
       this.checkFormValidity();
       this.formValues.emit(this.weightForm);
     });

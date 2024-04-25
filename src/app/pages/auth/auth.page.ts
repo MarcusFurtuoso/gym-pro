@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { map, tap } from 'rxjs';
 import { User } from 'src/app/models/user.model';
@@ -10,7 +10,7 @@ import { UtilsService } from 'src/app/services/utils.service';
   templateUrl: './auth.page.html',
   styleUrls: ['./auth.page.scss'],
 })
-export class AuthPage implements OnInit {
+export class AuthPage{
   form = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
@@ -20,10 +20,6 @@ export class AuthPage implements OnInit {
     private firebaseService: FirebaseService,
     private utilsService: UtilsService
   ) {}
-
-  ngOnInit() {
-    null;
-  }
 
   loginWithGoogle() {
     this.firebaseService.loginWithGoogle();
