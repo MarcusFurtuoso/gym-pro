@@ -18,7 +18,7 @@
     </div>
 
     <div class="card-exercises">
-      <ion-card *ngFor="let exercise of filteredExercises" [button]="true" (click)="exerciseDetails(exercise)" mode="ios">
+      <ion-card class="animate" *ngFor="let exercise of filteredExercises" [button]="true" (click)="exerciseDetails(exercise)" mode="ios">
         <div class="card-content">
           <img src="assets/imgs/exercise-flexao.svg" class="exercise-image" />
           <div class="exercise-details">
