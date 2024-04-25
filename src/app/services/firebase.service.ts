@@ -10,6 +10,7 @@ import { UtilsService } from './utils.service';
 import { Observable, map, switchMap } from 'rxjs';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { from } from 'rxjs';
+import { Challenge } from '../models/challenge.model';
 @Injectable({
   providedIn: 'root',
 })
@@ -187,5 +188,14 @@ export class FirebaseService {
   // Trainings
   getTrainings() {
     return this.db.collection('Trainings').valueChanges({ idField: 'id' });
+  }
+
+  // Challenges
+  getChallenges() {
+    return this.db.collection('Challenges').valueChanges({ idField: 'id' });
+  }
+
+  updateChallengeInUser(userId: string, challengeId: string, changes: Partial<Challenge>) {
+    return this.db.collection('Users').doc(userId).collection('challenges').doc(challengeId).update(changes);
   }
 }
