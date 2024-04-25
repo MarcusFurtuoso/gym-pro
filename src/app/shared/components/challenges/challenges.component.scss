@@ -1,0 +1,151 @@
+.content {
+  padding: 30px 20px 10px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 23px;
+  font-weight: bold;
+  font-style: italic;
+  color: var(--ion-color-light-contrast);
+}
+
+.card-completed {
+  align-items: center;
+  ion-card-title {
+    font-size: 18px;
+    color: var(--ion-color-primary-contrast);
+    padding: 10px;
+  }
+
+}
+
+.card-title {
+  display: flex;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: italic;
+  justify-content: space-between;
+  border: 1px solid var(--ion-color-item-border);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate {
+  animation: slideDown 0.4s ease-out;
+}
+
+.card-challenges {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+ion-card {
+  border-radius: 10px;
+  margin: 0 0px 15px 0;
+  padding: 0;
+  height: 90px;
+  border: 1px solid var(--ion-color-item-border);
+}
+
+.card-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 10px 10px 10px;
+}
+
+.exercise-image {
+  width: 70px;
+  padding-right: 10px;
+}
+
+.challenge-details {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+
+  ion-card-title {
+    font-size: 16px;
+    font-weight: bold;
+    font-style: italic;
+    color: var(--ion-color-primary-contrast);
+    padding-bottom: 10px;
+  }
+
+  ion-card-subtitle {
+    font-size: 14px;
+    color: var(--ion-color-medium-tint);
+    text-transform: none;
+  }
+}
+
+ion-checkbox {
+  --size: 23px;
+  margin-left: auto;
+  padding-right: 5px;
+  --checkmark-color: var(--ion-color-primary);
+  --checkbox-background-checked: var(--ion-color-secondary);
+}
+
+.title-progress ion-label {
+  font-size: 1.2em;
+  padding-right: 5px;
+}
+
+ion-range {
+  --bar-background: var(--ion-color-item-border);
+  --bar-background-active: var(--ion-color-secondary);
+  --height: 20px;
+  --knob-size: 5px;
+  padding-bottom: 20px;
+}
+
+.button-save {
+  padding-right: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  ion-button {
+    --border-radius: 15px;
+    --background: var(--ion-color-secondary);
+    --color: var(--ion-color-primary);
+    font-size: 15px;
+    width: 350px;
+  }
+}
+
+@keyframes moveIcon {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+  100% { transform: translateY(0); }
+}
+
+.forward-arrow {
+  font-size: 30px;
+  margin-left: auto;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  margin-left: auto;
+
+  ion-footer {
+    background: var(--ion-color-primary);
+  }
+}
+
