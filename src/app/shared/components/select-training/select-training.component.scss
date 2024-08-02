@@ -81,7 +81,7 @@ ion-card {
   align-items: start;
   justify-content: start;
   ion-label {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     font-style: italic;
     padding-bottom: 0px;
@@ -96,16 +96,19 @@ ion-card {
 }
 
 .exercises {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: start;
-  justify-content: space-between;
+  // display: grid;
+  // flex-wrap: wrap;
+  // align-items: start;
+  // justify-content: space-between;
+  // grid-template-columns: 1fr 1fr 1fr;
 
   ion-label {
-    flex: 0 0 calc(35%);
-    font-size: 14px;
+    // justify-self: start;
+    // flex: 0 0 calc(40%);
+    display: block;
+    font-size: 16px;
     text-align: start;
-    padding: 15px 0 10px 2px;
+    padding: 15px 0 10px 5px;
     color: var(--ion-color-primary-contrast);
   }
 }
